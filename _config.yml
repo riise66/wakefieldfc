@@ -1,10 +1,9 @@
 title: Wakefield F.C.
 description: Road to Glory — West Yorkshire, 1890
-baseurl: ""
-url: ""
+baseurl: "/wakefieldfc"
+url: "https://riise66.github.io"
 lang: es
 
-# Excluir archivos de Jekyll
 exclude:
   - Gemfile
   - Gemfile.lock
