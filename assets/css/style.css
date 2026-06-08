@@ -41,17 +41,21 @@ img { max-width: 100%; display: block; }
 /* ============================================
    NAVBAR
    ============================================ */
+
+/* ============================================
+   NAVBAR
+   ============================================ */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(0, 19, 43, 0.95); /* Modificado al azul #00132B con opacidad */
+  background: rgba(0, 19, 43, 0.95); 
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   backdrop-filter: blur(10px);
   transition: var(--transition);
 }
 .navbar.scrolled {
-  background: rgba(0, 19, 43, 0.99); /* Modificado al azul #00132B con más opacidad */
+  background: rgba(0, 19, 43, 0.99); 
   border-bottom-color: var(--gold-dim);
 }
 
@@ -64,47 +68,22 @@ img { max-width: 100%; display: block; }
   height: 70px;
   position: relative;
 }
+
 .nav-logo {
   display: inline-flex;
-  align-items: center;      /* Centra la imagen verticalmente */
-  height: 100%;             /* Fuerza a que ocupe todo el alto disponible de la barra */
+  align-items: center;      /* Centrado vertical matemático */
+  justify-content: center;
+  height: 100%;             
   text-decoration: none;
 }
 
 .nav-logo img {
-  width: 180px;             /* El tamaño que ya te gustaba */
+  width: 180px;             
   height: auto;
   display: block;
-  margin-top: 6px;
+  margin-top: 0;            /* RESTEADO A 0: Deja que flexbox haga su magia */
 }
 
-.nav-logo-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1px;
-  line-height: 1.1;
-  margin-top: 0;
-}
-.nav-logo-text .logo-text {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  color: var(--white);
-  text-transform: uppercase;
-}
-.nav-logo-text .logo-text em {
-  color: var(--gold);
-  font-style: normal;
-}
-.nav-logo-text .logo-est {
-  font-family: var(--font-sans);
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  color: var(--gold-dim);
-  text-transform: uppercase;
-}
 .nav-links {
   position: absolute;
   left: 50%;
