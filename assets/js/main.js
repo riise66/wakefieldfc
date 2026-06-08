@@ -41,29 +41,3 @@ document.querySelectorAll('.noticia-card, .pilar, .comunicado').forEach(el => {
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
-
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-function openLightbox(src) {
-  lightboxImg.src = src;
-  lightbox.classList.add('is-open');
-}
-
-function closeLightbox() {
-  lightbox.classList.remove('is-open');
-}
-
-lightbox.addEventListener('click', function(e) {
-  if (e.target === lightbox) {
-    closeLightbox();
-  }
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeLightbox();
-  }
-});
-</script>
