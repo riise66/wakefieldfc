@@ -69,59 +69,61 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 
-/* CONTEXTO GENERAL DEL LOGO */
+/* CONTENEDOR PRINCIPAL DEL LOGO */
 .nav-logo {
-  display: inline-flex;
-  align-items: center;      /* Centrado vertical perfecto */
-  justify-content: center;
-  height: 100%;             /* Ocupa los 70px de la barra */
+  display: inline-flex !important;
+  align-items: center !important;   /* Centrado vertical perfecto de los elementos */
+  gap: 14px;                         /* Espacio elegante entre el caballo y el texto */
+  height: 100%;
   text-decoration: none;
 }
 
-.nav-logo img {
-  /* Truco de oro: en vez de darle ancho, le damos alto para que */
-  /* el carromato llene casi toda la barra de forma imponente */
-  height: 52px;             /* Sube a 55px si lo quieres aún más grande */
-  width: auto;              /* El ancho se calcula solo perfectamente */
-  display: block;
-  margin: 0;                /* Sin márgenes raros que lo desvíen */
-  
-  /* Un sutil relieve para que el dorado resalte sobre el fondo marino */
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5)); 
+/* EL ICONO DEL CARROMATO */
+.nav-logo .logo-icon {
+  height: 46px !important;           /* Tamaño imponente pero controlado para una barra de 70px */
+  width: auto !important;            /* Mantiene la proporción perfecta sin estirarse */
+  display: block !important;
+  margin: 0 !important;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4)); /* Relieve sutil sobre el fondo oscuro */
 }
 
-/* EL TEXTO: Bloque vertical alineado */
+/* BLOQUE DE TEXTO EN VERTICAL */
 .nav-logo-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 1.1;         /* Junta las dos líneas al estilo clásico inglés */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  line-height: 1.1 !important;       /* Junta las líneas para que parezca un único escudo */
+  text-align: left;
 }
 
-/* Línea superior: WAKEFIELD F.C. */
+/* PRIMERA LÍNEA: WAKEFIELD F.C. */
 .nav-logo-text .logo-title {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 0.95rem;       /* Tamaño equilibrado respecto a los enlaces del menú */
-  letter-spacing: 0.12em;
-  color: var(--white);
+  font-family: var(--font-sans), 'Arial Black', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;                /* Escalado hacia arriba para que tenga presencia */
+  letter-spacing: 0.06em;            /* Aspecto de marca deportiva tradicional inglesa */
+  color: #ffffff;                    /* Blanco puro */
   text-transform: uppercase;
 }
 
+/* EL DETALLE "F.C." EN DORADO */
 .nav-logo-text .logo-title em {
-  color: var(--gold);
-  font-style: normal;       /* Mantiene el F.C. en dorado pero recto */
+  color: #e5a93c;                    /* Tu dorado corporativo nítido */
+  font-style: normal;                /* Elimina la cursiva por defecto del em */
+  margin-left: 5px;
 }
 
-/* Línea inferior: EST. 1890 */
+/* SEGUNDA LÍNEA: EST. 1890 */
 .nav-logo-text .logo-sub {
-  font-family: var(--font-sans);
-  font-size: 0.62rem;       /* Letra pequeña y distinguida */
-  letter-spacing: 0.22em;   /* Mayor espaciado para emular el diseño industrial */
-  color: var(--gold-dim);
+  font-family: var(--font-sans), 'Arial', sans-serif;
+  font-size: 0.72rem;                /* Un pelín más grande para que no sea ilegible */
+  font-weight: 600;
+  letter-spacing: 0.28em;            /* Espaciado ancho premium estilo clásico */
+  color: rgba(229, 169, 60, 0.85);   /* Dorado ligeramente suavizado */
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 3px;                   /* Separación exacta con la línea superior */
 }
+
 
 .nav-links {
   position: absolute;
