@@ -10,6 +10,21 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
   {% if page.extra_css_file %}<link rel="stylesheet" href="{{ site.baseurl }}{{ page.extra_css_file }}">{% endif %}
 </head>
+<script>
+function openLightbox(src) {
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+
+  img.src = src;
+  lightbox.classList.add('is-open');
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  lightbox.classList.remove('is-open');
+}
+</script>
+  
 <body>
 
   {% include navbar.html %}
