@@ -66,15 +66,16 @@ img { max-width: 100%; display: block; }
 }
 .nav-logo {
   display: flex;
-  align-items: center;
-  padding: 0.5rem 0;
+  align-items: center;      /* Centra la imagen verticalmente */
+  justify-content: center;   /* Opcional: asegura el centrado horizontal si tiene ancho fijo */
+  height: 100%;             /* Fuerza a que ocupe todo el alto disponible de la barra */
+  padding: 0;               /* Reseteamos paddings que puedan empujarlo hacia abajo */
 }
 
 .nav-logo img {
+  width: 180px;             /* El tamaño que ya te gustaba */
   height: auto;
-  width: 180px; /* Ajusta este valor (ej. 190px o 200px) hasta que tenga el tamaño que más te guste */
   display: block;
-  object-fit: contain;
 }
 
 .nav-logo-text {
