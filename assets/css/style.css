@@ -910,3 +910,23 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 1px 3px rgba(0,0,0,0.4); /* Un sombreado negro sutil */
   vertical-align: middle;
 }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
