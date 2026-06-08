@@ -69,26 +69,55 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 
+/* CONTEXTO GENERAL DEL LOGO */
 .nav-logo {
   display: inline-flex;
-  align-items: center;      /* Centrado vertical matemático */
-  justify-content: center;
+  align-items: center;      /* Centrado vertical perfecto entre icono y texto */
+  gap: 12px;                /* Espacio exacto entre el carromato y las letras */
   height: 100%;             
   text-decoration: none;
 }
 
-.nav-logo img {
-  width: 275px;             /* Escalamos de forma masiva para obligar al dibujo a crecer */
-  height: auto;
+/* EL ICONO: Pequeño, nítido y estilizado */
+.nav-logo .logo-icon {
+  height: 38px;             /* Altura ideal para que no sature los 70px de la barra */
+  width: auto;              /* Mantiene la proporción perfecta del dibujo */
   display: block;
+  margin: 0;                /* Reseteamos cualquier margen raro */
+  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.3)); /* Le da un toque de relieve */
+}
 
-   
-  margin-top: -12px;        
-  margin-bottom: -12px;
-  margin-left: -10px;       
-  
-  position: relative;
-  z-index: 10;
+/* EL TEXTO: Bloque vertical alineado */
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;         /* Junta las dos líneas al estilo clásico inglés */
+}
+
+/* Línea superior: WAKEFIELD F.C. */
+.nav-logo-text .logo-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;       /* Tamaño equilibrado respecto a los enlaces del menú */
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.nav-logo-text .logo-title em {
+  color: var(--gold);
+  font-style: normal;       /* Mantiene el F.C. en dorado pero recto */
+}
+
+/* Línea inferior: EST. 1890 */
+.nav-logo-text .logo-sub {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;       /* Letra pequeña y distinguida */
+  letter-spacing: 0.22em;   /* Mayor espaciado para emular el diseño industrial */
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
 .nav-links {
