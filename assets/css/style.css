@@ -65,11 +65,10 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 .nav-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;      /* Centra la imagen verticalmente */
-  justify-content: center;   /* Opcional: asegura el centrado horizontal si tiene ancho fijo */
   height: 100%;             /* Fuerza a que ocupe todo el alto disponible de la barra */
-  padding: 0;               /* Reseteamos paddings que puedan empujarlo hacia abajo */
+  text-decoration: none;
 }
 
 .nav-logo img {
