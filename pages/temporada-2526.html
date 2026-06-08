@@ -4,181 +4,343 @@ title: "Temporada 2025/2026"
 extra_css_file: /assets/css/temporada-2526.css
 ---
 
+<style>
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 21, 48, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: var(--navy-dark);
+  border: 1px solid rgba(212,175,55,0.3);
+  border-top: 3px solid var(--gold);
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 3rem;
+  position: relative;
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: 1px solid rgba(212,175,55,0.3);
+  color: var(--gold-dim);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal-close:hover { border-color: var(--gold); color: var(--gold); }
+.modal-meta {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.75rem;
+}
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+.modal-body p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--grey-light);
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+}
+.modal-body p strong { color: var(--white); font-weight: 600; }
+.modal-body p em { color: var(--gold-dim); font-style: italic; }
+.modal-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212,175,55,0.1);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.com-item { cursor: pointer; }
+</style>
+
 <!-- HERO -->
-  <div class="temp-hero">
-    <div class="temp-hero-inner">
-      <p class="section-label">Temporadas · 2025/2026</p>
-      <h1>Temporada <em>2025/2026</em></h1>
-      <p>El debut histórico del Wakefield F.C. en la English Football League. Primera temporada en el fútbol profesional inglés.</p>
+<div class="temp-hero">
+  <div class="temp-hero-inner">
+    <p class="section-label">Temporadas · 2025/2026</p>
+    <h1>Temporada <em>2025/2026</em></h1>
+    <p>El debut histórico del Wakefield F.C. en la English Football League. Primera temporada en el fútbol profesional inglés.</p>
+  </div>
+</div>
+
+<!-- NAV INTERNA -->
+<nav class="temp-nav">
+  <div class="temp-nav-inner">
+    <a href="#resumen" class="active">Resumen</a>
+    <a href="#mercado-verano">Mercado de Verano</a>
+    <a href="#mercado-invierno">Mercado de Invierno</a>
+    <a href="#comunicados">Comunicados</a>
+    <a href="#clasificacion">Clasificación</a>
+  </div>
+</nav>
+
+<div class="temp-content">
+
+  <!-- RESUMEN -->
+  <div id="resumen" class="temp-section" style="border-top: none;">
+    <div class="temp-section-label">Visión general</div>
+    <div class="resumen-grid">
+      <div class="resumen-text">
+        <h2>El debut que Wakefield esperaba desde 1890</h2>
+        <p>La temporada 2025/2026 representa el momento más importante en los 136 años de historia del Wakefield Football Club. Por primera vez, <strong>The Draymen</strong> compiten en la English Football League, cerrando un capítulo de espera que se extendió durante más de un siglo en las categorías semiprofesionales del fútbol inglés.</p>
+        <p>Bajo la dirección de <strong>Artie Pendelton</strong>, el equipo ha afrontado su debut en la League Two con una identidad táctica clara: un 4-2-3-1 en contraataque con presión alta que ha permitido al club mantenerse en posiciones de playoff durante los primeros compases de la campaña.</p>
+        <p>El mercado de invierno trajo movimientos significativos. La venta de <strong>Dylan Powell</strong> al Stade de Reims por 1,6 millones de libras supuso la mayor operación de la historia del club, y los fondos obtenidos se destinaron a reforzar la plantilla con la llegada de <strong>Birk Risa</strong> procedente del Molde FK.</p>
+        <div class="placeholder-box" style="margin-top: 2rem;">
+          <p>⏳ Resumen completo disponible al final de temporada</p>
+        </div>
+      </div>
+      <div class="resumen-stats">
+        <div class="resumen-stat">
+          <span class="resumen-stat-num">3º</span>
+          <span class="resumen-stat-label">Posición actual</span>
+        </div>
+        <div class="resumen-stat">
+          <span class="resumen-stat-num">4-2-3-1</span>
+          <span class="resumen-stat-label">Formación</span>
+        </div>
+        <div class="resumen-stat">
+          <span class="resumen-stat-num">£1.6M</span>
+          <span class="resumen-stat-label">Mayor venta</span>
+        </div>
+        <div class="resumen-stat">
+          <span class="resumen-stat-num">136</span>
+          <span class="resumen-stat-label">Años de espera</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- NAV INTERNA -->
-  <nav class="temp-nav">
-    <div class="temp-nav-inner">
-      <a href="#resumen" class="active">Resumen</a>
-      <a href="#mercado-verano">Mercado de Verano</a>
-      <a href="#mercado-invierno">Mercado de Invierno</a>
-      <a href="#comunicados">Comunicados</a>
-      <a href="#clasificacion">Clasificación</a>
-    </div>
-  </nav>
-
-  <div class="temp-content">
-
-    <!-- RESUMEN -->
-    <div id="resumen" class="temp-section" style="border-top: none;">
-      <div class="temp-section-label">Visión general</div>
-      <div class="resumen-grid">
-        <div class="resumen-text">
-          <h2>El debut que Wakefield esperaba desde 1890</h2>
-          <p>La temporada 2025/2026 representa el momento más importante en los 136 años de historia del Wakefield Football Club. Por primera vez, <strong>The Draymen</strong> compiten en la English Football League, cerrando un capítulo de espera que se extendió durante más de un siglo en las categorías semiprofesionales del fútbol inglés.</p>
-          <p>Bajo la dirección de <strong>Artie Pendelton</strong>, el equipo ha afrontado su debut en la League Two con una identidad táctica clara: un 4-2-3-1 en contraataque con presión alta que ha permitido al club mantenerse en posiciones de media tabla durante los primeros compases de la campaña.</p>
-          <p>El mercado de invierno trajo movimientos significativos. La venta de <strong>Dylan Powell</strong> al Stade de Reims por 1,6 millones de libras supuso la mayor operación de la historia del club, y los fondos obtenidos se destinaron a reforzar la plantilla con la llegada de <strong>Birk Risa</strong> procedente del Molde FK.</p>
-
-          <!-- ACTUALIZAR AL FINAL DE TEMPORADA -->
-          <div class="placeholder-box" style="margin-top: 2rem;">
-            <p>⏳ Resumen completo disponible al final de temporada</p>
-          </div>
-        </div>
-        <div class="resumen-stats">
-          <div class="resumen-stat">
-            <span class="resumen-stat-num">3º</span>
-            <span class="resumen-stat-label">Posición actual</span>
-          </div>
-          <div class="resumen-stat">
-            <span class="resumen-stat-num">4-2-3-1</span>
-            <span class="resumen-stat-label">Formación</span>
-          </div>
-          <div class="resumen-stat">
-            <span class="resumen-stat-num">£1.6M</span>
-            <span class="resumen-stat-label">Mayor venta</span>
-          </div>
-          <div class="resumen-stat">
-            <span class="resumen-stat-num">136</span>
-            <span class="resumen-stat-label">Años de espera</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MERCADO DE VERANO -->
-    <div id="mercado-verano" class="temp-section">
-      <div class="temp-section-label">Julio — Agosto 2025</div>
-      <h2>Mercado de Verano</h2>
-      <div class="comunicados-list">
-        <div class="placeholder-box">
-          <p>Añade aquí los movimientos del mercado de verano</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- MERCADO DE INVIERNO -->
-    <div id="mercado-invierno" class="temp-section">
-      <div class="temp-section-label">Enero 2026</div>
-      <h2>Mercado de Invierno</h2>
-      <div class="comunicados-list">
-
-        <div class="com-item">
-          <span class="com-tag">Fichaje</span>
-          <div class="com-info">
-            <h3>Birk Risa · Dorsal 4</h3>
-            <p>Central zurdo · Molde FK → Wakefield F.C. · 27 años · 188cm</p>
-          </div>
-          <span class="com-amount">£1,500,000</span>
-        </div>
-
-        <div class="com-item">
-          <span class="com-tag">Traspaso</span>
-          <div class="com-info">
-            <h3>Dylan Powell → Stade de Reims</h3>
-            <p>Central zurdo · EFL League Two → Ligue 1</p>
-          </div>
-          <span class="com-amount">£1,600,000</span>
-        </div>
-
-        <div class="com-item">
-          <span class="com-tag">Traspaso</span>
-          <div class="com-info">
-            <h3>Nathan Hayes → Rosenborg BK</h3>
-            <p>Mediocentro defensivo · EFL League Two → Eliteserien</p>
-          </div>
-          <span class="com-amount">£690,000</span>
-        </div>
-
-        <div class="com-item">
-          <span class="com-tag cesion">Cesión</span>
-          <div class="com-info">
-            <h3>Noah Proctor → Barnsley F.C.</h3>
-            <p>Extremo · 2 temporadas · Canterano · 17 años</p>
-          </div>
-          <span class="com-amount" style="color: var(--grey-light); font-size:0.8rem;">Cesión</span>
-        </div>
-
-        <div class="com-item">
-          <span class="com-tag cesion">Cesión</span>
-          <div class="com-info">
-            <h3>Dexter Roberts → Leyton Orient</h3>
-            <p>Mediocentro · 2 temporadas · Canterano · 17 años</p>
-          </div>
-          <span class="com-amount" style="color: var(--grey-light); font-size:0.8rem;">Cesión</span>
-        </div>
-
-        <div class="com-item">
-          <span class="com-tag cesion">Cesión</span>
-          <div class="com-info">
-            <h3>Callum Hope → FC Luzern</h3>
-            <p>Mediapunta · 2 temporadas · Canterano · 18 años</p>
-          </div>
-          <span class="com-amount" style="color: var(--grey-light); font-size:0.8rem;">Cesión</span>
-        </div>
-
-        <div class="com-item">
-          <span class="com-tag salida">Salida</span>
-          <div class="com-info">
-            <h3>James Woodward</h3>
-            <p>Lateral derecho · Fin de contrato</p>
-          </div>
-          <span class="com-amount salida">Libre</span>
-        </div>
-
-        <div class="com-item">
-          <span class="com-tag salida">Salida</span>
-          <div class="com-info">
-            <h3>Arlo Slater</h3>
-            <p>Delantero centro · Fin de contrato · 35 años</p>
-          </div>
-          <span class="com-amount salida">Libre</span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- COMUNICADOS -->
-    <div id="comunicados" class="temp-section">
-      <div class="temp-section-label">Temporada 2025/2026</div>
-      <h2>Comunicados Oficiales</h2>
-      <div class="comunicados-list">
-
-        <div class="com-item">
-          <span class="com-tag" style="background:var(--navy-mid); color:var(--gold); border:1px solid var(--gold-dim);">Identidad</span>
-          <div class="com-info">
-            <h3>El Wakefield F.C. presenta su nuevo escudo oficial</h3>
-            <p>Julio 2026 · Rediseño del escudo con motivo del ascenso a la EFL</p>
-          </div>
-          <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Jul 2026</span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- CLASIFICACIÓN -->
-    <div id="clasificacion" class="temp-section">
-      <div class="temp-section-label">EFL League Two · 2025/2026</div>
-      <h2>Clasificación final</h2>
+  <!-- MERCADO DE VERANO -->
+  <div id="mercado-verano" class="temp-section">
+    <div class="temp-section-label">Julio — Agosto 2025</div>
+    <h2>Mercado de Verano</h2>
+    <div class="comunicados-list">
       <div class="placeholder-box">
-        <p>⏳ Clasificación final disponible al término de la temporada</p>
+        <p>Añade aquí los movimientos del mercado de verano</p>
       </div>
     </div>
-
   </div>
+
+  <!-- MERCADO DE INVIERNO -->
+  <div id="mercado-invierno" class="temp-section">
+    <div class="temp-section-label">Enero 2026</div>
+    <h2>Mercado de Invierno</h2>
+    <p style="font-family:var(--font-sans); font-size:0.7rem; letter-spacing:0.1em; color:var(--grey); margin-bottom:1.5rem;">Haz clic en cualquier movimiento para leer el comunicado oficial.</p>
+    <div class="comunicados-list">
+
+      <div class="com-item" onclick="openModal('risa')">
+        <span class="com-tag">Fichaje</span>
+        <div class="com-info">
+          <h3>Birk Risa · Dorsal 4</h3>
+          <p>Central zurdo · Molde FK → Wakefield F.C. · 27 años · 188cm</p>
+        </div>
+        <span class="com-amount">£1,500,000</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('powell')">
+        <span class="com-tag">Traspaso</span>
+        <div class="com-info">
+          <h3>Dylan Powell → Stade de Reims</h3>
+          <p>Central zurdo · EFL League Two → Ligue 1</p>
+        </div>
+        <span class="com-amount">£1,600,000</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('hayes')">
+        <span class="com-tag">Traspaso</span>
+        <div class="com-info">
+          <h3>Nathan Hayes → Rosenborg BK</h3>
+          <p>Mediocentro defensivo · EFL League Two → Eliteserien</p>
+        </div>
+        <span class="com-amount">£690,000</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('proctor')">
+        <span class="com-tag cesion">Cesión</span>
+        <div class="com-info">
+          <h3>Noah Proctor → Barnsley F.C.</h3>
+          <p>Extremo · 2 temporadas · Canterano · 17 años</p>
+        </div>
+        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Cesión</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('roberts')">
+        <span class="com-tag cesion">Cesión</span>
+        <div class="com-info">
+          <h3>Dexter Roberts → Leyton Orient</h3>
+          <p>Mediocentro · 2 temporadas · Canterano · 17 años</p>
+        </div>
+        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Cesión</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('hope')">
+        <span class="com-tag cesion">Cesión</span>
+        <div class="com-info">
+          <h3>Callum Hope → FC Luzern</h3>
+          <p>Mediapunta · 2 temporadas · Canterano · 18 años</p>
+        </div>
+        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Cesión</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('woodward')">
+        <span class="com-tag salida">Salida</span>
+        <div class="com-info">
+          <h3>James Woodward</h3>
+          <p>Lateral derecho · Fin de contrato</p>
+        </div>
+        <span class="com-amount salida">Libre</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('slater')">
+        <span class="com-tag salida">Salida</span>
+        <div class="com-info">
+          <h3>Arlo Slater</h3>
+          <p>Delantero centro · Fin de contrato · 35 años</p>
+        </div>
+        <span class="com-amount salida">Libre</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COMUNICADOS -->
+  <div id="comunicados" class="temp-section">
+    <div class="temp-section-label">Temporada 2025/2026</div>
+    <h2>Comunicados Oficiales</h2>
+    <div class="comunicados-list">
+      <div class="com-item" onclick="openModal('escudo')">
+        <span class="com-tag" style="background:var(--navy-mid); color:var(--gold); border:1px solid var(--gold-dim);">Identidad</span>
+        <div class="com-info">
+          <h3>El Wakefield F.C. presenta su nuevo escudo oficial</h3>
+          <p>Julio 2026 · Rediseño del escudo con motivo del ascenso a la EFL</p>
+        </div>
+        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Jul 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLASIFICACIÓN -->
+  <div id="clasificacion" class="temp-section">
+    <div class="temp-section-label">EFL League Two · 2025/2026</div>
+    <h2>Clasificación final</h2>
+    <div class="placeholder-box">
+      <p>⏳ Clasificación final disponible al término de la temporada</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" onclick="closeModal()">CERRAR ✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+const comunicados = {
+  risa: {
+    meta: 'Wakefield F.C. · Enero 2026 · Fichaje',
+    title: 'El Wakefield F.C. da la bienvenida a Birk Risa',
+    body: '<p>El Wakefield Football Club anuncia el acuerdo con el Molde FK para la incorporación de <strong>Birk Risa</strong> por una cantidad de <strong>1,5 millones de libras</strong>.</p><p>El defensa noruego, de 27 años y 188 centímetros, llega al Calder Road para ocupar la posición de central zurdo, cubriendo la baja de Dylan Powell tras su marcha al Stade de Reims. Zurdo natural y dotado de una notable capacidad de salida de balón, Risa aporta además versatilidad al poder actuar como lateral izquierdo cuando la situación lo requiere.</p><p>Formado en las categorías inferiores del fútbol noruego y con una dilatada experiencia en la Eliteserien, Risa llega al Wakefield F.C. con el número <strong>4</strong> a la espalda y con el firme propósito de consolidarse en el fútbol inglés.</p><p>El club da la bienvenida a Birk Risa y le desea el mayor de los éxitos en su nueva etapa.</p>'
+  },
+  powell: {
+    meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
+    title: 'El Wakefield F.C. llega a un acuerdo con el Stade de Reims por Dylan Powell',
+    body: '<p>El Wakefield Football Club anuncia el traspaso de <strong>Dylan Powell</strong> al Stade de Reims de la Ligue 1 francesa por una cantidad de <strong>1,6 millones de libras</strong>, la mayor venta de la historia del club.</p><p>Powell, de 24 años, llegó al Wakefield F.C. procedente del fútbol de categorías inferiores y se ha convertido en uno de los jugadores más destacados de la plantilla durante la primera temporada del club en la English Football League. Su capacidad de salida de balón, su pie izquierdo y su lectura táctica han llamado la atención de varios clubes en los últimos meses.</p><p>Para el Wakefield F.C., este traspaso representa un hito institucional que va más allá de la cifra económica. Que un club de la Ligue 1 francesa se fije en un jugador de la Football League y pague por él la mayor cantidad de la historia del club es una señal inequívoca de que el proyecto deportivo está en el camino correcto.</p><p>Dylan Powell se marcha del Calder Road con el agradecimiento y el cariño de todo el club. Le deseamos la mejor de las suertes en Francia.</p>'
+  },
+  hayes: {
+    meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
+    title: 'El Wakefield F.C. acepta la oferta del Rosenborg BK por Nathan Hayes',
+    body: '<p>El Wakefield Football Club confirma el traspaso de <strong>Nathan Hayes</strong> al Rosenborg BK de la Eliteserien noruega por una cantidad de <strong>690.000 libras</strong>.</p><p>Hayes ha sido uno de los pilares del sistema defensivo del Wakefield durante esta temporada. La oferta del Rosenborg BK representa una cantidad significativa para una entidad del tamaño del Wakefield F.C. Tras valorar la situación, la dirección deportiva ha considerado que rechazar esta operación no sería coherente con la gestión responsable que el club necesita en esta etapa de su desarrollo institucional.</p><p>El Wakefield F.C. agradece a Nathan Hayes su entrega y profesionalidad, y le desea el mayor de los éxitos en su nueva etapa.</p>'
+  },
+  proctor: {
+    meta: 'Wakefield F.C. · Enero 2026 · Cesión',
+    title: 'El Wakefield F.C. cede a Noah Proctor al Barnsley F.C. por dos temporadas',
+    body: '<p>El Wakefield Football Club anuncia el acuerdo con el Barnsley F.C. para la cesión de <strong>Noah Proctor</strong> por un período de dos temporadas.</p><p>Proctor, de 17 años, es uno de los talentos más prometedores formados en la cantera del Wakefield F.C. Su irrupción en el primer equipo durante la presente temporada ha confirmado que el joven canterano tiene condiciones más que suficientes para desarrollarse en el fútbol profesional inglés. El club ha tomado la decisión de facilitarle una cesión que le garantice minutos de competición regular.</p><p>El Wakefield F.C. mantiene todos los derechos sobre el jugador. Noah Proctor sale del Calder Road con el respaldo total del club y con la certeza de que su sitio aquí sigue siendo suyo.</p>'
+  },
+  roberts: {
+    meta: 'Wakefield F.C. · Enero 2026 · Cesión',
+    title: 'El Wakefield F.C. cede a Dexter Roberts al Leyton Orient por dos temporadas',
+    body: '<p>El Wakefield Football Club anuncia el acuerdo con el Leyton Orient para la cesión de <strong>Dexter Roberts</strong> por un período de dos temporadas.</p><p>Roberts, de 17 años y 191 centímetros, es uno de los productos más destacados de la cantera del Wakefield F.C. Mediocentro con una notable capacidad de salida de balón, su físico privilegiado le otorga una presencia en el centro del campo poco habitual para su edad. El club considera que el Leyton Orient es el entorno ideal para que el joven canterano dé el siguiente paso en su desarrollo.</p><p>El Wakefield F.C. mantiene todos los derechos sobre el jugador y seguirá de cerca su evolución durante su etapa en Londres.</p>'
+  },
+  hope: {
+    meta: 'Wakefield F.C. · Enero 2026 · Cesión',
+    title: 'El Wakefield F.C. cede a Callum Hope al FC Luzern por dos temporadas',
+    body: '<p>El Wakefield Football Club anuncia el acuerdo con el FC Luzern de la Super League suiza para la cesión de <strong>Callum Hope</strong> por un período de dos temporadas.</p><p>Hope, de 18 años, es otro de los jóvenes talentos formados en la cantera del Wakefield F.C. El mediapunta llega a esta cesión en un momento clave de su desarrollo, con el objetivo de acumular minutos de competición en un entorno profesional exigente. La elección del FC Luzern no es casual: el club suizo ofrece a Hope un proyecto deportivo serio y un nivel de competición que el cuerpo técnico del Wakefield considera idóneo para su perfil.</p><p>El Wakefield F.C. mantiene todos los derechos sobre Callum Hope.</p>'
+  },
+  woodward: {
+    meta: 'Wakefield F.C. · Diciembre 2025 · Salida',
+    title: 'El Wakefield F.C. confirma la no renovación de James Woodward',
+    body: '<p>El Wakefield Football Club informa de que <strong>James Woodward</strong> no continuará en la entidad una vez expire su contrato actual. El lateral derecho abandona el club tras no alcanzarse un acuerdo para la renovación de su vínculo contractual.</p><p>El club agradece a James Woodward su trabajo durante su etapa en el Calder Road y le desea lo mejor en su siguiente destino profesional.</p>'
+  },
+  slater: {
+    meta: 'Wakefield F.C. · Diciembre 2025 · Despedida',
+    title: 'El Wakefield F.C. despide a Arlo Slater tras una temporada inolvidable',
+    body: '<p>El Wakefield Football Club hace público que <strong>Arlo Slater</strong> no continuará en el club una vez finalice su contrato en vigor. El delantero, de 35 años, pone fin a su etapa en el Calder Road tras haber formado parte del grupo histórico que ha disputado la primera temporada del club en la English Football League.</p><p>Slater llegó al Wakefield F.C. aportando algo que ningún fichaje puede garantizar: experiencia. En el vestuario, su presencia ha sido tan importante como sus minutos sobre el césped. Los jugadores más jóvenes del grupo han tenido en él a un referente dentro y fuera del campo.</p><p>El club agradece a Arlo Slater su dedicación, su profesionalidad y todo lo que ha aportado a este proyecto en un año que ninguno olvidará.</p>'
+  },
+  escudo: {
+    meta: 'Wakefield F.C. · Julio 2026 · Comunicado Oficial',
+    title: 'El Wakefield F.C. presenta su nuevo escudo oficial',
+    body: '<p>El Wakefield Football Club hace público hoy el rediseño de su escudo oficial, con entrada en vigor a partir de la temporada 2026/2027. La decisión responde a la necesidad de dotar al club de una identidad visual a la altura de su nueva etapa institucional sin traicionar los valores y la historia que han definido a esta entidad durante 136 años.</p><p>El nuevo escudo mantiene intactos todos los elementos simbólicos: la flor de lis, el caballo de tiro y el carro, las ondas del río Calder y el año de fundación, 1890. Lo que ha cambiado es la ejecución: una línea más limpia y contenida, mejorando la legibilidad a cualquier tamaño. <strong>Modernización técnica. Identidad intacta.</strong></p><p>El escudo cambia de forma. El club sigue siendo el mismo.</p>'
+  }
+};
+
+function openModal(id) {
+  const com = comunicados[id];
+  if (!com) return;
+  document.getElementById('modal-content').innerHTML =
+    '<p class="modal-meta">' + com.meta + '</p>' +
+    '<h2 class="modal-title">' + com.title + '</h2>' +
+    '<div class="modal-body">' + com.body + '</div>' +
+    '<div class="modal-footer">Wakefield Football Club — Est. 1890 · The Draymen. The Calder. The City.</div>';
+  document.getElementById('modal-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+</script>
