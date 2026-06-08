@@ -80,9 +80,10 @@ img { max-width: 100%; display: block; }
 
 /* EL CABALLO */
 .nav-logo .logo-icon {
-  height: 44px;             /* Tamaño equilibrado e imponente */
+  height: 44px;             /* Mantiene su tamaño */
   width: auto;
   display: block;
+  transform: translateY(-2px); /* El truco: lo desplaza exactamente 2 píxeles hacia arriba */
 }
 
 /* EL BLOQUE DE TEXTO VERTICAL */
