@@ -78,11 +78,15 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-logo img {
-  width: 260px;             
+  width: 320px;             /* Escalamos de forma masiva para obligar al dibujo a crecer */
   height: auto;
   display: block;
-  margin-top: 0;
-  max-height: 85px;         /* Le damos margen para crecer hacia abajo */
+
+   
+  margin-top: -12px;        
+  margin-bottom: -12px;
+  margin-left: -10px;       
+  
   position: relative;
   z-index: 10;
 }
