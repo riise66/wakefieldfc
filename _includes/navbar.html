@@ -1,8 +1,13 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
+    
+    <!-- SUSTITUYE TU ANTERIOR <a class="nav-logo"> POR ESTE: -->
     <a href="{{ site.baseurl }}/" class="nav-logo">
-      <img src="{{ site.baseurl }}/assets/img/escudominimalista.png" alt="Wakefield F.C.">
+      <img src="{{ site.baseurl }}/assets/img/escudominimalista.png" 
+           alt="Wakefield F.C." 
+           style="height: 46px; width: auto; display: block;">
     </a>
+    
     <ul class="nav-links">
       <li><a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Inicio</a></li>
       <li class="dropdown">
