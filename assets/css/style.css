@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-logo img {
-  width: 320px;             /* Escalamos de forma masiva para obligar al dibujo a crecer */
+  width: 275px;             /* Escalamos de forma masiva para obligar al dibujo a crecer */
   height: auto;
   display: block;
 
