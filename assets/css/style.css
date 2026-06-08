@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-logo img {
-  width: 180px;             
+  width: 240px;             
   height: auto;
   display: block;
   margin-top: 0;            /* RESTEADO A 0: Deja que flexbox haga su magia */
