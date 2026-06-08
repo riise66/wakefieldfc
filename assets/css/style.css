@@ -78,10 +78,13 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-logo img {
-  width: 240px;             
+  width: 260px;             
   height: auto;
   display: block;
-  margin-top: 0;            /* RESTEADO A 0: Deja que flexbox haga su magia */
+  margin-top: 0;
+  max-height: 85px;         /* Le damos margen para crecer hacia abajo */
+  position: relative;
+  z-index: 10;
 }
 
 .nav-links {
