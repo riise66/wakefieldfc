@@ -313,61 +313,77 @@ extra_css_file: /assets/css/temporada-2526.css
   <div id="clasificacion-invierno" class="temp-section">
     <div class="temp-section-label">Enero 2026 · Jornada 24</div>
     <h2>Clasificación de Invierno</h2>
-    <table class="tabla-clasificacion">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Club</th>
-          <th>J</th>
-          <th>G</th>
-          <th>E</th>
-          <th>P</th>
-          <th>GF</th>
-          <th>GC</th>
-          <th>DG</th>
-          <th>PTS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="zona"><td colspan="10">↑ Ascenso directo</td></tr>
-        <tr class="wakefield">
-          <td class="tabla-pos">1</td>
-          <td class="tabla-club">Wakefield F.C. ★</td>
-          <td>24</td><td>12</td><td>7</td><td>5</td>
-          <td>43</td><td>28</td><td>+15</td>
-          <td class="tabla-pts">43</td>
-        </tr>
-        <tr>
-          <td class="tabla-pos">2</td>
-          <td class="tabla-club">Gillingham</td>
-          <td>24</td><td>12</td><td>5</td><td>7</td>
-          <td>44</td><td>36</td><td>+8</td>
-          <td class="tabla-pts">41</td>
-        </tr>
-        <tr>
-          <td class="tabla-pos">3</td>
-          <td class="tabla-club">Colchester Utd</td>
-          <td>25</td><td>11</td><td>7</td><td>7</td>
-          <td>47</td><td>38</td><td>+9</td>
-          <td class="tabla-pts">40</td>
-        </tr>
-        <tr class="zona"><td colspan="10">↑ Eliminatorias de ascenso</td></tr>
-        <tr>
-          <td class="tabla-pos">4</td>
-          <td class="tabla-club">Notts County</td>
-          <td>24</td><td>11</td><td>7</td><td>6</td>
-          <td>41</td><td>37</td><td>+4</td>
-          <td class="tabla-pts">40</td>
-        </tr>
-        <tr>
-          <td class="tabla-pos">5</td>
-          <td class="tabla-club">Barnet</td>
-          <td>24</td><td>11</td><td>6</td><td>7</td>
-          <td>44</td><td>41</td><td>+3</td>
-          <td class="tabla-pts">39</td>
-        </tr>
-      </tbody>
-    </table>
+    
+    <div class="table-responsive">
+      <table class="tabla-clasificacion">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Club</th>
+            <th>J</th>
+            <th>G</th>
+            <th>E</th>
+            <th>P</th>
+            <th>GF</th>
+            <th>GC</th>
+            <th>DG</th>
+            <th>PTS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Añade la clase "ascenso-directo" a los top 3 -->
+          <tr class="wakefield ascenso-directo">
+            <td><span class="tabla-pos">1</span></td>
+            <td class="tabla-club">Wakefield F.C.</td>
+            <td>24</td><td>12</td><td>7</td><td>5</td>
+            <td>43</td><td>28</td><td>+15</td>
+            <td><span class="tabla-pts">43</span></td>
+          </tr>
+          <tr class="ascenso-directo">
+            <td><span class="tabla-pos">2</span></td>
+            <td class="tabla-club">Gillingham</td>
+            <td>24</td><td>12</td><td>5</td><td>7</td>
+            <td>44</td><td>36</td><td>+8</td>
+            <td><span class="tabla-pts">41</span></td>
+          </tr>
+          <tr class="ascenso-directo">
+            <td><span class="tabla-pos">3</span></td>
+            <td class="tabla-club">Colchester Utd</td>
+            <td>25</td><td>11</td><td>7</td><td>7</td>
+            <td>47</td><td>38</td><td>+9</td>
+            <td><span class="tabla-pts">40</span></td>
+          </tr>
+          
+          <!-- Añade la clase "playoffs" del 4º al 7º -->
+          <tr class="playoffs">
+            <td><span class="tabla-pos">4</span></td>
+            <td class="tabla-club">Notts County</td>
+            <td>24</td><td>11</td><td>7</td><td>6</td>
+            <td>41</td><td>37</td><td>+4</td>
+            <td><span class="tabla-pts">40</span></td>
+          </tr>
+          <tr class="playoffs">
+            <td><span class="tabla-pos">5</span></td>
+            <td class="tabla-club">Barnet</td>
+            <td>24</td><td>11</td><td>6</td><td>7</td>
+            <td>44</td><td>41</td><td>+3</td>
+            <td><span class="tabla-pts">39</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Leyenda visual -->
+    <div class="tabla-leyenda">
+      <div class="leyenda-item">
+        <span class="leyenda-dot dot-directo"></span>
+        Ascenso Directo
+      </div>
+      <div class="leyenda-item">
+        <span class="leyenda-dot dot-playoff"></span>
+        Eliminatorias de Ascenso
+      </div>
+    </div>
   </div>
 
   <!-- CLASIFICACIÓN FINAL -->
