@@ -268,22 +268,27 @@
   line-height: 1;
 }
 
-/* TABLA CLASIFICACIÓN V2 */
+/* TABLA CLASIFICACIÓN V3 - Elegante y Unificada */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
   margin-top: 1.5rem;
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(212, 175, 55, 0.1);
   border-radius: 8px;
-  padding: 1rem;
+  /* Contenedor con borde sutil para enmarcar la tabla */
+  border: 1px solid rgba(212, 175, 55, 0.15); 
+  background: rgba(6, 21, 48, 0.4); 
 }
 
 .tabla-clasificacion {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 4px; /* Separación entre filas para darle un toque moderno */
-  min-width: 650px; /* Evita que se aplaste en móviles */
+  border-collapse: collapse; /* Volvemos a tabla unida, es más limpio */
+  min-width: 650px;
+}
+
+/* Cabecera */
+.tabla-clasificacion thead {
+  background: rgba(10, 35, 81, 0.6);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
 }
 
 .tabla-clasificacion th {
@@ -292,9 +297,8 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-dim);
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   text-align: center;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .tabla-clasificacion th:first-child,
@@ -302,46 +306,46 @@
   text-align: left; 
 }
 
+/* Celdas normales */
 .tabla-clasificacion td {
-  padding: 0.85rem 1rem;
+  padding: 1rem;
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--grey-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   text-align: center;
-  background: rgba(255, 255, 255, 0.02);
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
 }
 
-/* Bordes redondeados en los extremos de cada fila */
-.tabla-clasificacion tr td:first-child { 
-  border-top-left-radius: 6px; 
-  border-bottom-left-radius: 6px; 
+.tabla-clasificacion td:first-child,
+.tabla-clasificacion td:nth-child(2) { 
   text-align: left; 
 }
-.tabla-clasificacion tr td:last-child { 
-  border-top-right-radius: 6px; 
-  border-bottom-right-radius: 6px; 
-}
 
-/* Indicadores de zona (Líneas de color a la izquierda) */
-.tabla-clasificacion tr.ascenso-directo td:first-child { 
-  border-left: 3px solid #4CAF50; 
+/* Filas separadoras de zona (Ascenso) muy elegantes */
+.tabla-clasificacion tr.zona {
+  background: rgba(0, 0, 0, 0.2);
 }
-.tabla-clasificacion tr.playoffs td:first-child { 
-  border-left: 3px solid #2196F3; 
-}
-
-/* Diseño de la posición */
-.tabla-pos {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+.tabla-clasificacion tr.zona td {
+  padding: 0.6rem 1rem;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-align: left;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  border-left: 2px solid #4CAF50; /* Verde para directo */
+}
+.tabla-clasificacion tr.zona.playoff td {
+  border-left: 2px solid #2196F3; /* Azul para playoff */
+  color: #7ab4e2;
+}
+
+/* Tipografía de la tabla */
+.tabla-pos {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--grey);
 }
@@ -349,69 +353,45 @@
 .tabla-club {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--white);
 }
 
-/* Resalte de los puntos */
 .tabla-pts {
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 900;
-  color: var(--gold);
-  background: rgba(212, 175, 55, 0.05);
-  border-radius: 4px;
-  padding: 0.2rem 0.6rem;
+  color: var(--white);
 }
 
-/* Estilo especial para el Wakefield F.C. */
-.tabla-clasificacion tr.wakefield td { 
-  background: rgba(212, 175, 55, 0.08); 
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+/* El equipo protagonista: Wakefield F.C. */
+.tabla-clasificacion tr.wakefield {
+  /* Un gradiente sutil para destacarlo sin ser estridente */
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.02) 100%);
 }
+
+.tabla-clasificacion tr.wakefield td { 
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
 .tabla-clasificacion tr.wakefield td:first-child { 
   border-left: 3px solid var(--gold); 
 }
-.tabla-clasificacion tr.wakefield td:last-child { 
-  border-right: 1px solid rgba(212, 175, 55, 0.15); 
-}
+
 .tabla-clasificacion tr.wakefield .tabla-club { 
   color: var(--gold); 
-}
-.tabla-clasificacion tr.wakefield .tabla-pos { 
-  background: var(--gold); 
-  color: var(--navy-dark); 
+  font-weight: 800;
 }
 
-/* Efecto hover interactivo */
-.tabla-clasificacion tr:hover td { 
-  background: rgba(212, 175, 55, 0.06); 
-  transform: scale(1.005);
-  cursor: default;
+.tabla-clasificacion tr.wakefield .tabla-pts { 
+  color: var(--gold); 
 }
 
-/* Leyenda inferior */
-.tabla-leyenda {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1.25rem;
-  padding-left: 0.5rem;
+/* Efecto Hover */
+.tabla-clasificacion tr:not(.zona):hover td { 
+  background: rgba(255, 255, 255, 0.03); 
 }
-.leyenda-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey);
+.tabla-clasificacion tr.wakefield:hover td { 
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0.05) 100%);
 }
-.leyenda-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-.dot-directo { background: #4CAF50; }
-.dot-playoff { background: #2196F3; }
