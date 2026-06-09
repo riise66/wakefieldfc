@@ -1,0 +1,367 @@
+---
+layout: default
+title: "Palmarés"
+---
+
+<style>
+.palmares-hero {
+  padding: 12rem 0 6rem;
+  background:
+    linear-gradient(135deg, rgba(6,21,48,0.98) 0%, rgba(10,35,81,0.92) 60%, rgba(6,21,48,0.98) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(212,175,55,0.03) 40px, rgba(212,175,55,0.03) 41px);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.palmares-hero::before {
+  content: '★';
+  position: absolute;
+  right: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22rem;
+  color: rgba(212,175,55,0.04);
+  pointer-events: none;
+}
+.palmares-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+.palmares-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.palmares-hero h1 em { color: var(--gold); font-style: italic; }
+.palmares-hero p {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--grey-light);
+  max-width: 600px;
+}
+
+.palmares-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+/* TÍTULO DESTACADO — National League */
+.palmares-featured {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  border: 1px solid rgba(212,175,55,0.3);
+  border-top: 3px solid var(--gold);
+  padding: 4rem;
+  margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.palmares-featured::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.palmares-featured-trophy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.palmares-featured-trophy img {
+  max-height: 180px;
+  filter: drop-shadow(0 0 30px rgba(212,175,55,0.3));
+}
+.palmares-featured-trophy .trophy-placeholder {
+  width: 120px;
+  height: 160px;
+  border: 2px dashed rgba(212,175,55,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-align: center;
+  padding: 1rem;
+}
+.palmares-featured-info {
+  position: relative;
+  z-index: 1;
+}
+.palmares-featured-tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--navy-dark);
+  background: var(--gold);
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.palmares-featured-info h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.palmares-featured-year {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+.palmares-featured-info p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--grey-light);
+  line-height: 1.8;
+}
+
+/* SECCIÓN ERA */
+.palmares-era {
+  margin-bottom: 4rem;
+}
+.palmares-era-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+.palmares-era h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+/* LISTA DE TÍTULOS */
+.palmares-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.palmares-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,175,55,0.1);
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.palmares-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.palmares-item:hover::before { opacity: 1; }
+.palmares-item:hover { background: rgba(212,175,55,0.03); border-color: rgba(212,175,55,0.25); }
+.palmares-item-year {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.7;
+}
+.palmares-item-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+.palmares-item-info p {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.palmares-item-badge {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--navy-dark);
+  background: var(--gold-dim);
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}
+.palmares-item-badge.liga { background: var(--gold); color: var(--navy-dark); }
+.palmares-item-badge.copa { background: var(--navy-mid); color: var(--gold); border: 1px solid var(--gold-dim); }
+
+@media (max-width: 768px) {
+  .palmares-featured { grid-template-columns: 1fr; text-align: center; }
+  .palmares-item { grid-template-columns: 50px 1fr; }
+  .palmares-item-badge { display: none; }
+}
+</style>
+
+<div class="palmares-hero">
+  <div class="palmares-hero-inner">
+    <p class="section-label">Wakefield F.C.</p>
+    <h1>Palmarés</h1>
+    <p>136 años de historia. Cada título, un capítulo. Este es el registro de los logros del Wakefield Football Club desde su fundación en 1890.</p>
+  </div>
+</div>
+
+<div class="palmares-content">
+
+  <!-- TÍTULO DESTACADO -->
+  <div class="palmares-featured">
+    <div class="palmares-featured-trophy">
+      <!-- Sustituye la URL por el PNG del trofeo de la National League -->
+      <img src="TU_URL_TROFEO_NATIONAL_LEAGUE_AQUI" alt="National League Trophy"
+           onerror="this.outerHTML='<div class=\'trophy-placeholder\'>Añade aquí el PNG del trofeo</div>'">
+    </div>
+    <div class="palmares-featured-info">
+      <span class="palmares-featured-tag">Título más reciente</span>
+      <h2>National League</h2>
+      <p class="palmares-featured-year">Temporada 2025/2026</p>
+      <p>El título que lo cambió todo. Tras 136 años de espera, el Wakefield F.C. se proclamó campeón de la National League y ascendió por primera vez en su historia a la English Football League. El Calder Road vivió la noche más memorable de su historia el día en que The Draymen certificaron matemáticamente el campeonato.</p>
+    </div>
+  </div>
+
+  <!-- ERA PROFESIONAL -->
+  <div class="palmares-era">
+    <div class="palmares-era-label">Era Profesional · 2026 — presente</div>
+    <h2>Fútbol Profesional</h2>
+    <div class="palmares-list">
+      <div class="palmares-item">
+        <span class="palmares-item-year">2026</span>
+        <div class="palmares-item-info">
+          <h3>National League</h3>
+          <p>Vanarama National League · Campeones · Ascenso a EFL League Two</p>
+        </div>
+        <span class="palmares-item-badge liga">Liga</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ERA SEMIPROFESIONAL -->
+  <div class="palmares-era">
+    <div class="palmares-era-label">Era Semiprofesional · 1968 — 2026</div>
+    <h2>Northern Premier League y Conferencias</h2>
+    <div class="palmares-list">
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">2024</span>
+        <div class="palmares-item-info">
+          <h3>Northern Premier League Division One East</h3>
+          <p>Campeones · Ascenso a Northern Premier League Premier Division</p>
+        </div>
+        <span class="palmares-item-badge liga">Liga</span>
+      </div>
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">2001</span>
+        <div class="palmares-item-info">
+          <h3>West Riding County FA Cup</h3>
+          <p>Copa del condado de West Yorkshire · Primera victoria en la competición</p>
+        </div>
+        <span class="palmares-item-badge copa">Copa</span>
+      </div>
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">1987</span>
+        <div class="palmares-item-info">
+          <h3>West Riding County FA Cup</h3>
+          <p>Copa del condado de West Yorkshire</p>
+        </div>
+        <span class="palmares-item-badge copa">Copa</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ERA REGIONAL -->
+  <div class="palmares-era">
+    <div class="palmares-era-label">Era Regional · 1890 — 1968</div>
+    <h2>Ligas y Copas Regionales</h2>
+    <div class="palmares-list">
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">1962</span>
+        <div class="palmares-item-info">
+          <h3>Yorkshire League</h3>
+          <p>Yorkshire Football League · Temporada 1961/62</p>
+        </div>
+        <span class="palmares-item-badge liga">Liga</span>
+      </div>
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">1951</span>
+        <div class="palmares-item-info">
+          <h3>West Riding County FA Cup</h3>
+          <p>Copa del condado de West Yorkshire</p>
+        </div>
+        <span class="palmares-item-badge copa">Copa</span>
+      </div>
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">1938</span>
+        <div class="palmares-item-info">
+          <h3>Yorkshire League</h3>
+          <p>Yorkshire Football League · Temporada 1937/38</p>
+        </div>
+        <span class="palmares-item-badge liga">Liga</span>
+      </div>
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">1923</span>
+        <div class="palmares-item-info">
+          <h3>Wakefield & District FA League</h3>
+          <p>Liga local · Campeones de la División Principal</p>
+        </div>
+        <span class="palmares-item-badge liga">Liga</span>
+      </div>
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">1912</span>
+        <div class="palmares-item-info">
+          <h3>Wakefield & District FA League</h3>
+          <p>Liga local · Campeones de la División Principal</p>
+        </div>
+        <span class="palmares-item-badge liga">Liga</span>
+      </div>
+
+      <div class="palmares-item">
+        <span class="palmares-item-year">1904</span>
+        <div class="palmares-item-info">
+          <h3>Wakefield & District FA League</h3>
+          <p>Liga local · Primera liga ganada en la historia del club</p>
+        </div>
+        <span class="palmares-item-badge liga">Liga</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
