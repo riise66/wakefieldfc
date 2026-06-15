@@ -157,6 +157,42 @@ extra_css_file: /assets/css/temporada-2526.css
 .tabla-clasificacion tr:hover td { background: rgba(212,175,55,0.03); }
 .tabla-zona td { padding: 0.4rem 1rem; text-align: left; color: var(--gold-dim); font-family: var(--font-sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(212,175,55,0.05); border-bottom: 1px solid rgba(212,175,55,0.1); }
 
+/* SECCIÓN PREMIOS */
+.premios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.premio-card {
+  background: rgba(212,175,55,0.02);
+  border: 1px solid rgba(212,175,55,0.1);
+  border-top: 3px solid var(--gold);
+  padding: 1.5rem;
+  text-align: center;
+}
+.premio-title {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.5rem;
+}
+.premio-winner {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+.premio-stats {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  color: var(--grey-light);
+  letter-spacing: 0.05em;
+}
+
 /* COPAS */
 .copas-grid {
   display: grid;
@@ -206,7 +242,7 @@ extra_css_file: /assets/css/temporada-2526.css
 /* MOMENTOS */
 .momentos-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
   margin-top: 1.5rem;
 }
@@ -223,8 +259,11 @@ extra_css_file: /assets/css/temporada-2526.css
 .momento-score { font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
 .momento-venue { font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
 
+@media (max-width: 1024px) {
+  .momentos-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
-  .copas-grid, .momentos-grid { grid-template-columns: 1fr; }
+  .copas-grid, .momentos-grid, .premios-grid { grid-template-columns: 1fr; }
   .com-item { grid-template-columns: 1fr; }
   .com-amount { text-align: left; }
 }
@@ -235,7 +274,7 @@ extra_css_file: /assets/css/temporada-2526.css
   <div class="temp-hero-inner">
     <p class="section-label">Temporadas · 2025/2026</p>
     <h1>Temporada <em>2025/2026</em></h1>
-    <p>El debut histórico del Wakefield F.C. en la English Football League. Primera temporada en el fútbol profesional inglés.</p>
+    <p>El debut histórico del Wakefield F.C. en la English Football League. ¡Rumbo a la EFL League One!</p>
   </div>
 </div>
 
@@ -243,7 +282,8 @@ extra_css_file: /assets/css/temporada-2526.css
 <nav class="temp-nav">
   <div class="temp-nav-inner">
     <a href="#resumen" class="active">Resumen</a>
-    <a href="#clasificacion-invierno">Clasificación</a>
+    <a href="#clasificacion-final">Clasificación Final</a>
+    <a href="#clasificacion-invierno">Clasificación Invierno</a>
     <a href="#copas">Copas</a>
     <a href="#momentos">Momentos</a>
     <a href="#mercado-verano">Mercado Verano</a>
@@ -259,25 +299,22 @@ extra_css_file: /assets/css/temporada-2526.css
     <div class="temp-section-label">Visión general</div>
     <div class="resumen-grid">
       <div class="resumen-text">
-        <h2>El debut que Wakefield esperaba desde 1890</h2>
-        <p>La temporada 2025/2026 representa el momento más importante en los 136 años de historia del Wakefield Football Club. Por primera vez, <strong>The Draymen</strong> compiten en la English Football League, cerrando un capítulo de espera que se extendió durante más de un siglo en las categorías semiprofesionales del fútbol inglés.</p>
-        <p>Bajo la dirección de <strong>Artie Pendelton</strong>, el equipo ha afrontado su debut en la League Two con una propuesta de contraataque y presión alta que ha superado todas las expectativas. Con 28 partidos disputados, el Wakefield F.C. ocupa la cuarta posición con 48 puntos, tocando puestos de playoff y con opciones reales de ascenso directo en la segunda parte de la temporada.</p>
-        <p>El mercado de invierno, ya cerrado, trajo movimientos significativos en ambas direcciones. Las ventas de <strong>Dylan Powell</strong> al Stade de Reims y de <strong>Finn Lawrence</strong> al Çaykur Rizespor han supuesto las mayores operaciones de la historia del club. Los fondos obtenidos se destinaron a la llegada de <strong>Birk Risa</strong> procedente del Molde FK y de <strong>Simon Stehle</strong> del SV Wehen Wiesbaden.</p>
-        <div class="placeholder-box" style="margin-top: 2rem;">
-          <p>⏳ Resumen completo disponible al final de temporada</p>
-        </div>
+        <h2>¡Héroes de Wembley y ascenso continental!</h2>
+        <p>La temporada 2025/2026 quedará grabada eternamente en las páginas doradas del Wakefield Football Club. En su primer año compitiendo en el fútbol profesional de la English Football League, <strong>The Draymen</strong> no solo mantuvieron el tipo en una durísima League Two, sino que sellaron un ascenso meteórico a la League One tras un tramo final de campaña de auténtico infarto.</p>
+        <p>Bajo la férrea batuta de <strong>Artie Pendelton</strong>, el bloque supo reinventarse tras un movido mercado de invierno y aguantó el pulso competitivo hasta la última jornada (9 de mayo), cerrando el campeonato regular en la 4ª posición con 72 puntos. La gloria absoluta llegó en la gran final del Playoff disputada en Wembley, donde el Wakefield F.C. se coronó campeón tras derrotar categóricamente al Barnet por un contundente 0-2.</p>
+        <p>El curso deja también un legado impecable en lo individual: la eclosión realizadora de <strong>Elliott Whittaker</strong> (MVP y máximo goleador de la plantilla), la finura en el pase de <strong>Alan Pritchard</strong> y un cerrojo inquebrantable comandado por <strong>Peter Stewart</strong> bajo los tres palos.</p>
       </div>
       <div class="resumen-stats">
-        <div class="resumen-stat">
-          <span class="resumen-stat-num">4º</span>
-          <span class="resumen-stat-label">Posición actual</span>
+        <div class="resumen-stat" style="border-color: var(--gold); background: rgba(212,175,55,0.05);">
+          <span class="resumen-stat-num" style="color: var(--gold);">L1</span>
+          <span class="resumen-stat-label">¡Ascendidos!</span>
         </div>
         <div class="resumen-stat">
-          <span class="resumen-stat-num">48</span>
-          <span class="resumen-stat-label">Puntos · J28</span>
+          <span class="resumen-stat-num">72</span>
+          <span class="resumen-stat-label">Puntos Finales · J46</span>
         </div>
         <div class="resumen-stat">
-          <span class="resumen-stat-num">13-9-6</span>
+          <span class="resumen-stat-num">19-15-12</span>
           <span class="resumen-stat-label">V · E · D</span>
         </div>
         <div class="resumen-stat">
@@ -286,12 +323,73 @@ extra_css_file: /assets/css/temporada-2526.css
         </div>
       </div>
     </div>
+
+    <!-- CUADRO DE HONORES INDIVIDUALES -->
+    <div class="premios-grid">
+      <div class="premio-card">
+        <div class="premio-title">🏆 Mejor Jugador & Pichichi</div>
+        <div class="premio-winner">Elliott Whittaker</div>
+        <div class="premio-stats">27 goles (Top 3 League Two)</div>
+      </div>
+      <div class="premio-card">
+        <div class="premio-title">⭐ Mención de Honor</div>
+        <div class="premio-winner">Alan Pritchard</div>
+        <div class="premio-stats">Máximo asistente: 14 asistencias / 44 partidos</div>
+      </div>
+      <div class="premio-card">
+        <div class="premio-title">🧤 Guante de Oro</div>
+        <div class="premio-winner">Peter Stewart</div>
+        <div class="premio-stats">13 porterías a cero / 46 partidos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLASIFICACIÓN FINAL -->
+  <div id="clasificacion-final" class="temp-section">
+    <div class="temp-section-label">9 de Mayo 2026 · Clasificación Final Definitiva</div>
+    <h2>Clasificación Final — EFL League Two</h2>
+    <table class="tabla-clasificacion">
+      <thead>
+        <tr>
+          <th>#</th><th>Club</th><th>J</th><th>G</th><th>E</th><th>P</th><th>GF</th><th>GC</th><th>DG</th><th>PTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tabla-zona"><td colspan="10">↑ Ascenso directo a EFL League One</td></tr>
+        <tr>
+          <td><span class="tabla-pos">1</span></td><td class="tabla-club">Notts County</td>
+          <td>46</td><td>22</td><td>15</td><td>9</td><td>85</td><td>69</td><td>+16</td><td><span class="tabla-pts">81</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabla-pos">2</span></td><td class="tabla-club">Salford City</td>
+          <td>46</td><td>21</td><td>15</td><td>10</td><td>81</td><td>63</td><td>+18</td><td><span class="tabla-pts">78</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabla-pos">3</span></td><td class="tabla-club">Colchester Utd</td>
+          <td>46</td><td>22</td><td>12</td><td>12</td><td>84</td><td>68</td><td>+16</td><td><span class="tabla-pts">78</span></td>
+        </tr>
+        <tr class="tabla-zona"><td colspan="10">🏆 Ganador del Playoff de Ascenso</td></tr>
+        <tr class="wakefield">
+          <td><span class="tabla-pos">4</span></td><td class="tabla-club">Wakefield F.C. 👑</td>
+          <td>46</td><td>19</td><td>15</td><td>12</td><td>76</td><td>53</td><td>+23</td><td><span class="tabla-pts">72</span></td>
+        </tr>
+        <tr class="tabla-zona"><td colspan="10">Eliminatorias de ascenso</td></tr>
+        <tr>
+          <td><span class="tabla-pos">5</span></td><td class="tabla-club">Barnet</td>
+          <td>46</td><td>19</td><td>14</td><td>13</td><td>81</td><td>78</td><td>+3</td><td><span class="tabla-pts">71</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabla-pos">6</span></td><td class="tabla-club">Swindon Town</td>
+          <td>46</td><td>20</td><td>10</td><td>16</td><td>80</td><td>70</td><td>+10</td><td><span class="tabla-pts">70</span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <!-- CLASIFICACIÓN INVIERNO -->
   <div id="clasificacion-invierno" class="temp-section">
     <div class="temp-section-label">Enero 2026 · Cierre de mercado invernal</div>
-    <h2>Clasificación — Mercado de Invierno</h2>
+    <h2>Clasificación Histórica — Mercado de Invierno</h2>
     <table class="tabla-clasificacion">
       <thead>
         <tr>
@@ -329,20 +427,12 @@ extra_css_file: /assets/css/temporada-2526.css
     </table>
   </div>
 
-  <!-- CLASIFICACIÓN FINAL -->
-  <div id="clasificacion-final" class="temp-section">
-    <div class="temp-section-label">Mayo 2026 · Final de temporada</div>
-    <h2>Clasificación Final</h2>
-    <div class="placeholder-box">
-      <p>⏳ Clasificación final disponible al término de la temporada</p>
-    </div>
-  </div>
-
   <!-- COPAS -->
   <div id="copas" class="temp-section">
     <div class="temp-section-label">Competiciones de Copa · 2025/2026</div>
     <h2>Copas</h2>
     <div class="copas-grid">
+      <div class="copas-grid">
       <div class="copa-card">
         <div class="copa-name">Emirates FA Cup</div>
         <div class="copa-result">Eliminados en Ronda 3</div>
@@ -382,9 +472,15 @@ extra_css_file: /assets/css/temporada-2526.css
 
   <!-- MOMENTOS DESTACADOS -->
   <div id="momentos" class="temp-section">
-    <div class="temp-section-label">Primera mitad de temporada</div>
+    <div class="temp-section-label">Momentos imborrables de la temporada</div>
     <h2>Momentos Destacados</h2>
     <div class="momentos-grid">
+      <div class="momento-card" style="border-color: var(--gold); background: rgba(212,175,55,0.06);">
+        <div class="momento-comp" style="color: var(--gold); font-weight: 700;">Final Playoff · Wembley</div>
+        <div class="momento-rival">Barnet F.C.</div>
+        <div class="momento-score">0-2</div>
+        <div class="momento-venue">¡CAMPEONES! 🏆</div>
+      </div>
       <div class="momento-card">
         <div class="momento-comp">EFL League Two · Casa</div>
         <div class="momento-rival">Walsall FC</div>
@@ -499,8 +595,6 @@ extra_css_file: /assets/css/temporada-2526.css
         </div>
         <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Cesión</span>
       </div>
-      <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Cesión</span>
-      </div>
       <div class="com-item" onclick="openModal('woodward')">
         <span class="com-tag salida">Salida</span>
         <div class="com-info">
@@ -522,12 +616,12 @@ extra_css_file: /assets/css/temporada-2526.css
     <div class="mercado-spacer"></div>
 
     <div class="mercado-header">
-      <h3>Mercado de verano — Final de temporada</h3>
-      <span class="mercado-badge">Pendiente · Mayo 2026</span>
+      <h3>Planificación Verano — Próxima temporada</h3>
+      <span class="mercado-badge">Abierto · Mayo 2026</span>
     </div>
     <div class="comunicados-list">
       <div class="placeholder-box">
-        <p>⏳ Los movimientos del mercado de verano se publicarán al término de la temporada</p>
+        <p>⏳ Los nuevos movimientos para el asalto a la EFL League One se publicarán próximamente.</p>
       </div>
     </div>
   </div>
@@ -583,7 +677,7 @@ const comunicados = {
   hayes: {
     meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
     title: 'El Wakefield F.C. acepta la oferta del Rosenborg BK por Nathan Hayes',
-    body: '<p>El Wakefield Football Club confirma el traspaso de <strong>Nathan Hayes</strong> al Rosenborg BK de la Eliteserien noruega por una cantidad de <strong>690.000 libras</strong>.</p><p>La oferta del Rosenborg BK representa una cantidad significativa para una entidad del tamaño del Wakefield F.C. La dirección deportiva ha considerado que esta operación es coherente con la gestión responsable que el club necesita en esta etapa de su desarrollo institucional.</p><p>El Wakefield F.C. agradece a Nathan Hayes su entrega y profesionalidad, y le desea el mayor de los éxitos en su nueva etapa.</p>'
+    body: '<p>El Wakefield Football Club confirma el traspaso de <strong>Nathan Hayes</strong> al Rosenborg BK de la Eliteserien noruega por una cantidad de <strong>690.000 libras</strong>.</p><p>La oferta del Rosenborg BK representa una cantidad significativa para una entidad del tamaño del Wakefield F.C. La dirección deportiva ha considerado que esta operación es coherente con la gestión responsable que el club necesita en esta etapa de su desarrollo institutional.</p><p>El Wakefield F.C. agradece a Nathan Hayes su entrega y profesionalidad, y le desea el mayor de los éxitos en su nueva etapa.</p>'
   },
   best: {
     meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
@@ -637,7 +731,3 @@ function closeModalOutside(e) {
 }
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 </script>
-
-
-
-
