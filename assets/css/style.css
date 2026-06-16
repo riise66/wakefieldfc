@@ -142,6 +142,7 @@ img { max-width: 100%; display: block; }
   line-height: 1;
 }
 .nav-season {
+  justify-self: end; /* <- Añadimos esto */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
