@@ -1,719 +1,659 @@
----
-layout: default
-title: "Temporada 2025/2026"
-extra_css_file: /assets/css/temporada-2526.css
----
+/* ============================================
+   WAKEFIELD F.C. — TEMPORADA 2025/2026
+   Estilos independientes para League Two
+   ============================================ */
 
-<style>
-/* MODAL */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(6, 21, 48, 0.92);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  backdrop-filter: blur(4px);
-}
-.modal-overlay.active { display: flex; }
-.modal-box {
-  background: var(--navy-dark);
-  border: 1px solid rgba(212,175,55,0.3);
-  border-top: 3px solid var(--gold);
-  max-width: 680px;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 3rem;
-  position: relative;
-  animation: modalIn 0.25s ease;
-}
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.modal-close {
-  position: absolute;
-  top: 1.25rem; right: 1.25rem;
-  background: none;
-  border: 1px solid rgba(212,175,55,0.3);
-  color: var(--gold-dim);
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  padding: 0.35rem 0.75rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.modal-close:hover { border-color: var(--gold); color: var(--gold); }
-.modal-meta {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 0.75rem;
-}
-.modal-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(212,175,55,0.15);
-}
-.modal-body p {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: var(--grey-light);
-  line-height: 1.85;
-  margin-bottom: 1.25rem;
-}
-.modal-body p strong { color: var(--white); font-weight: 600; }
-.modal-footer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(212,175,55,0.1);
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grey);
-}
-.com-item { cursor: pointer; }
-
-/* MERCADO HEADER */
-.mercado-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(212,175,55,0.1);
-}
-.mercado-header h3 {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grey-light);
-  margin: 0;
-}
-.mercado-badge {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid rgba(212,175,55,0.3);
-  color: var(--gold-dim);
-}
-.mercado-badge.cerrado {
-  background: rgba(212,175,55,0.08);
-  color: var(--gold);
-  border-color: var(--gold-dim);
-}
-.mercado-spacer {
-  height: 1.5rem;
+:root {
+  --navy-dark: #000b18;
+  --navy-mid: #001428;
+  --gold: #D4AF37;
+  --gold-dim: #a08820;
+  --white: #F5F0E8;
+  --grey-light: #c8c2b4;
+  --grey: #8a8a8a;
+  --font-display: Georgia, serif;
+  --font-body: Garamond, serif;
+  --font-sans: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* TABLA CLASIFICACIÓN */
-.tabla-clasificacion {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
+/* ============================================
+   HERO ESPECÍFICO DE PÁGINA
+   ============================================ */
+.temp-hero {
+    padding: 12rem 0 6rem;
+    background: linear-gradient(135deg, #000b18 0%, #00132B 100%);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
 }
-.tabla-clasificacion th {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  padding: 0.75rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(212,175,55,0.2);
-}
-.tabla-clasificacion th:first-child,
-.tabla-clasificacion th:nth-child(2) { text-align: left; }
-.tabla-clasificacion td {
-  padding: 1rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--grey-light);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  text-align: center;
-}
-.tabla-clasificacion td:first-child,
-.tabla-clasificacion td:nth-child(2) { text-align: left; }
-.tabla-pos { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; color: var(--grey); }
-.tabla-club { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); }
-.tabla-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--gold); }
-.tabla-clasificacion tr.wakefield { background: rgba(212,175,55,0.06); }
-.tabla-clasificacion tr.wakefield .tabla-club { color: var(--gold); }
-.tabla-clasificacion tr:hover td { background: rgba(212,175,55,0.03); }
-.tabla-zona td { padding: 0.4rem 1rem; text-align: left; color: var(--gold-dim); font-family: var(--font-sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(212,175,55,0.05); border-bottom: 1px solid rgba(212,175,55,0.1); }
 
-/* SECCIÓN PREMIOS */
+.temp-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(212,175,55,0.03) 40px,
+        rgba(212,175,55,0.03) 41px
+    );
+    opacity: 0.5;
+}
+
+.temp-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.temp-hero .section-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.temp-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.temp-hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+}
+
+/* ============================================
+   NAVEGACIÓN INTERNA DE LA PÁGINA
+   ============================================ */
+.temp-nav {
+    background: var(--navy-dark);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    position: sticky;
+    top: 70px;
+    z-index: 900;
+}
+
+.temp-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.temp-nav a {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey);
+    padding: 1.2rem 1rem;
+    display: block;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.temp-nav a:hover {
+    color: var(--white);
+}
+
+.temp-nav a.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+}
+
+/* ============================================
+   ESTRUCTURA DE SECCIONES CONTENT
+   ============================================ */
+.temp-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+
+.temp-section {
+    padding: 5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    scroll-margin-top: 120px;
+}
+
+.temp-section-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 1rem;
+}
+
+.temp-section h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 3rem;
+}
+
+/* ============================================
+   RESUMEN GRID & STATS
+   ============================================ */
+.resumen-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.resumen-text p {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: var(--grey-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.resumen-text p strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+.resumen-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.resumen-stat {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.resumen-stat:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    background: rgba(212, 175, 55, 0.03);
+}
+
+.resumen-stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+}
+
+.resumen-stat-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-top: 0.75rem;
+}
+
+/* ============================================
+   PREMIOS GRID
+   ============================================ */
 .premios-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
 }
+
 .premio-card {
-  background: rgba(212,175,55,0.02);
-  border: 1px solid rgba(212,175,55,0.1);
-  border-top: 3px solid var(--gold);
-  padding: 1.5rem;
-  text-align: center;
+    background: rgba(212,175,55,0.02);
+    border: 1px solid rgba(212,175,55,0.1);
+    border-top: 3px solid var(--gold);
+    padding: 1.5rem;
+    text-align: center;
 }
+
 .premio-title {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.5rem;
 }
+
 .premio-winner {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 0.25rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.25rem;
 }
+
 .premio-stats {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  color: var(--grey-light);
-  letter-spacing: 0.05em;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    color: var(--grey-light);
+    letter-spacing: 0.05em;
 }
 
-/* COPAS */
+/* ============================================
+   TABLA CLASIFICACIÓN
+   ============================================ */
+.tabla-clasificacion {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.tabla-clasificacion th {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+.tabla-clasificacion th:first-child,
+.tabla-clasificacion th:nth-child(2) {
+    text-align: left;
+}
+
+.tabla-clasificacion td {
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--grey-light);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    text-align: center;
+}
+
+.tabla-clasificacion td:first-child,
+.tabla-clasificacion td:nth-child(2) {
+    text-align: left;
+}
+
+.tabla-pos {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--grey);
+}
+
+.tabla-club {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.tabla-pts {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--gold);
+}
+
+.tabla-clasificacion tr.wakefield {
+    background: rgba(212,175,55,0.06);
+}
+
+.tabla-clasificacion tr.wakefield .tabla-club {
+    color: var(--gold);
+}
+
+.tabla-clasificacion tr:hover td {
+    background: rgba(212,175,55,0.03);
+}
+
+.tabla-zona td {
+    padding: 0.4rem 1rem;
+    text-align: left;
+    color: var(--gold-dim);
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(212,175,55,0.05);
+    border-bottom: 1px solid rgba(212,175,55,0.1);
+}
+
+/* ============================================
+   COPAS
+   ============================================ */
 .copas-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 1.5rem;
 }
+
 .copa-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(212,175,55,0.1);
-  padding: 2rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(212,175,55,0.1);
+    padding: 2rem;
 }
+
 .copa-name {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.75rem;
 }
+
 .copa-result {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1.25rem;
 }
-.copa-rounds { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.copa-rounds {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .copa-round {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  color: var(--grey-light);
-  padding: 0.5rem 0.75rem;
-  background: rgba(255,255,255,0.03);
-  border-left: 2px solid rgba(212,175,55,0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--grey-light);
+    padding: 0.5rem 0.75rem;
+    background: rgba(255,255,255,0.03);
+    border-left: 2px solid rgba(212,175,55,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.copa-round.win { border-left-color: #4CAF50; }
-.copa-round.loss { border-left-color: #e53935; }
-.copa-score { font-weight: 600; }
-.copa-score.win { color: #4CAF50; }
-.copa-score.loss { color: #e53935; }
 
-/* MOMENTOS */
+.copa-round.win {
+    border-left-color: #4CAF50;
+}
+
+.copa-round.loss {
+    border-left-color: #e53935;
+}
+
+.copa-score {
+    font-weight: 600;
+}
+
+.copa-score.win {
+    color: #4CAF50;
+}
+
+.copa-score.loss {
+    color: #e53935;
+}
+
+/* ============================================
+   MOMENTOS
+   ============================================ */
 .momentos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 1.5rem;
 }
+
 .momento-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(212,175,55,0.1);
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(212,175,55,0.1);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
 }
-.momento-card:hover { background: rgba(212,175,55,0.04); border-color: rgba(212,175,55,0.3); }
-.momento-comp { font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.75rem; }
-.momento-rival { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-.momento-score { font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
-.momento-venue { font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
 
+.momento-card:hover {
+    background: rgba(212,175,55,0.04);
+    border-color: rgba(212,175,55,0.3);
+}
+
+.momento-comp {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.75rem;
+}
+
+.momento-rival {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.momento-score {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.momento-venue {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+/* ============================================
+   MERCADO & COMUNICADOS
+   ============================================ */
+.mercado-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(212,175,55,0.1);
+}
+
+.mercado-header h3 {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey-light);
+    margin: 0;
+}
+
+.mercado-badge {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid rgba(212,175,55,0.3);
+    color: var(--gold-dim);
+}
+
+.mercado-badge.cerrado {
+    background: rgba(212,175,55,0.08);
+    color: var(--gold);
+    border-color: var(--gold-dim);
+}
+
+.mercado-spacer {
+    height: 1.5rem;
+}
+
+.comunicados-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.com-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.01);
+    border-bottom: 1px solid rgba(212,175,55,0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.com-item:hover {
+    background: rgba(212,175,55,0.03);
+    border-bottom-color: rgba(212,175,55,0.15);
+}
+
+.com-tag {
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(212,175,55,0.12);
+    color: var(--gold);
+    border: 1px solid rgba(212,175,55,0.2);
+    padding: 0.35rem 0.65rem;
+    white-space: nowrap;
+    align-self: start;
+}
+
+.com-tag.cesion {
+    background: rgba(100,150,200,0.12);
+    color: #64c5eb;
+    border-color: rgba(100,150,200,0.2);
+}
+
+.com-tag.salida {
+    background: rgba(200,100,100,0.12);
+    color: #e8a0a0;
+    border-color: rgba(200,100,100,0.2);
+}
+
+.com-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 0.5rem 0;
+}
+
+.com-info p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--grey-light);
+    margin: 0;
+}
+
+.com-amount {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.com-amount.salida {
+    color: var(--grey-light);
+    font-size: 0.9rem;
+}
+
+.placeholder-box {
+    background: rgba(212,175,55,0.03);
+    border: 1px dashed rgba(212,175,55,0.2);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.placeholder-box p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--grey-light);
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 1024px) {
-  .momentos-grid { grid-template-columns: repeat(2, 1fr); }
+    .momentos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .resumen-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .premios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
 @media (max-width: 768px) {
-  .copas-grid, .momentos-grid, .premios-grid { grid-template-columns: 1fr; }
-  .com-item { grid-template-columns: 1fr; }
-  .com-amount { text-align: left; }
+    .temp-hero {
+        padding: 8rem 0 4rem;
+    }
+    
+    .temp-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .temp-nav-inner {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .temp-nav a {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.65rem;
+    }
+    
+    .temp-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .copas-grid,
+    .momentos-grid,
+    .premios-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .com-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .com-amount {
+        text-align: left;
+    }
+    
+    .resumen-stats {
+        grid-template-columns: 1fr;
+    }
 }
-</style>
-
-<div class="temp-hero">
-  <div class="temp-hero-inner">
-    <p class="section-label">Temporadas · 2025/2026</p>
-    <h1>Temporada <em>2025/2026</em></h1>
-    </div>
-</div>
-
-<nav class="temp-nav">
-  <div class="temp-nav-inner">
-    <a href="#resumen" class="active">Resumen</a>
-    <a href="#clasificacion-final">Clasificación Final</a>
-    <a href="#clasificacion-invierno">Clasificación Invierno</a>
-    <a href="#copas">Copas</a>
-    <a href="#momentos">Momentos</a>
-    <a href="#mercado-verano">Mercado Verano</a>
-    <a href="#mercado-invierno">Mercado Invierno</a>
-    <a href="#comunicados">Comunicados</a>
-  </div>
-</nav>
-
-<div class="temp-content">
-
-  <div id="resumen" class="temp-section" style="border-top: none;">
-    <div class="temp-section-label">Visión general</div>
-    <div class="resumen-grid">
-      <div class="resumen-text">
-        <h2>¡Héroes de Wembley y ascenso continental!</h2>
-        <p>La temporada 2025/2026 quedará grabada eternamente en las páginas doradas del Wakefield Football Club. En su primer año compitiendo en el fútbol profesional de la English Football League, <strong>The Draymen</strong> no solo mantuvieron el tipo en una durísima League Two, sino que sellaron un ascenso meteórico a la League One tras un tramo final de campaña de auténtico infarto.</p>
-        <p>Bajo la férrea batuta de <strong>Artie Pendelton</strong>, el bloque supo reinventarse tras un movido mercado de invierno y aguantó el pulso competitivo hasta la última jornada (9 de mayo), cerrando el campeonato regular en la 4ª posición con 72 puntos. La gloria absoluta llegó en la gran final del Playoff disputada en Wembley, donde el Wakefield F.C. se coronó campeón tras derrotar categóricamente al Barnet por un contundente 0-2.</p>
-        <p>El curso deja también un legado impecable en lo individual: la eclosión realizadora de <strong>Elliott Whittaker</strong> (MVP y máximo goleador de la plantilla), la finura en el pase de <strong>Alan Pritchard</strong> y un cerrojo inquebrantable comandado por <strong>Peter Stewart</strong> bajo los tres palos.</p>
-      </div>
-      <div class="resumen-stats">
-        <div class="resumen-stat" style="border-color: var(--gold); background: rgba(212,175,55,0.05);">
-          <span class="resumen-stat-num" style="color: var(--gold);">L1</span>
-          <span class="resumen-stat-label">¡Ascendidos!</span>
-        </div>
-        <div class="resumen-stat">
-          <span class="resumen-stat-num">72</span>
-          <span class="resumen-stat-label">Puntos Finales · J46</span>
-        </div>
-        <div class="resumen-stat">
-          <span class="resumen-stat-num">19-15-12</span>
-          <span class="resumen-stat-label">V · E · D</span>
-        </div>
-        <div class="resumen-stat">
-          <span class="resumen-stat-num">£3.1M</span>
-          <span class="resumen-stat-label">Ingresos mercado</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="premios-grid">
-      <div class="premio-card">
-        <div class="premio-title">🏆 Mejor Jugador & Pichichi</div>
-        <div class="premio-winner">Elliott Whittaker</div>
-        <div class="premio-stats">27 goles (Top 3 League Two)</div>
-      </div>
-      <div class="premio-card">
-        <div class="premio-title">⭐ Mención de Honor</div>
-        <div class="premio-winner">Alan Pritchard</div>
-        <div class="premio-stats">Máximo asistente: 14 asistencias / 44 partidos</div>
-      </div>
-      <div class="premio-card">
-        <div class="premio-title">🧤 Guante de Oro</div>
-        <div class="premio-winner">Peter Stewart</div>
-        <div class="premio-stats">13 porterías a cero / 46 partidos</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="clasificacion-final" class="temp-section">
-    <div class="temp-section-label">9 de Mayo 2026 · Clasificación Final Definitiva</div>
-    <h2>Clasificación Final — EFL League Two</h2>
-    <table class="tabla-clasificacion">
-      <thead>
-        <tr>
-          <th>#</th><th>Club</th><th>J</th><th>G</th><th>E</th><th>P</th><th>GF</th><th>GC</th><th>DG</th><th>PTS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="tabla-zona"><td colspan="10">↑ Ascenso directo a EFL League One</td></tr>
-        <tr>
-          <td><span class="tabla-pos">1</span></td><td class="tabla-club">Notts County</td>
-          <td>46</td><td>22</td><td>15</td><td>9</td><td>85</td><td>69</td><td>+16</td><td><span class="tabla-pts">81</span></td>
-        </tr>
-        <tr>
-          <td><span class="tabla-pos">2</span></td><td class="tabla-club">Salford City</td>
-          <td>46</td><td>21</td><td>15</td><td>10</td><td>81</td><td>63</td><td>+18</td><td><span class="tabla-pts">78</span></td>
-        </tr>
-        <tr>
-          <td><span class="tabla-pos">3</span></td><td class="tabla-club">Colchester Utd</td>
-          <td>46</td><td>22</td><td>12</td><td>12</td><td>84</td><td>68</td><td>+16</td><td><span class="tabla-pts">78</span></td>
-        </tr>
-        <tr class="tabla-zona"><td colspan="10">🏆 Ganador del Playoff de Ascenso</td></tr>
-        <tr class="wakefield">
-          <td><span class="tabla-pos">4</span></td><td class="tabla-club">Wakefield F.C.</td>
-          <td>46</td><td>19</td><td>15</td><td>12</td><td>76</td><td>53</td><td>+23</td><td><span class="tabla-pts">72</span></td>
-        </tr>
-        <tr class="tabla-zona"><td colspan="10">Eliminatorias de ascenso</td></tr>
-        <tr>
-          <td><span class="tabla-pos">5</span></td><td class="tabla-club">Barnet</td>
-          <td>46</td><td>19</td><td>14</td><td>13</td><td>81</td><td>78</td><td>+3</td><td><span class="tabla-pts">71</span></td>
-        </tr>
-        <tr>
-          <td><span class="tabla-pos">6</span></td><td class="tabla-club">Swindon Town</td>
-          <td>46</td><td>20</td><td>10</td><td>16</td><td>80</td><td>70</td><td>+10</td><td><span class="tabla-pts">70</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div id="clasificacion-invierno" class="temp-section">
-    <div class="temp-section-label">Enero 2026 · Cierre de mercado invernal</div>
-    <h2>Clasificación - Mercado de Invierno</h2>
-    <table class="tabla-clasificacion">
-      <thead>
-        <tr>
-          <th>#</th><th>Club</th><th>J</th><th>G</th><th>E</th><th>P</th><th>GF</th><th>GC</th><th>DG</th><th>PTS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="tabla-zona"><td colspan="10">↑ Ascenso directo</td></tr>
-        <tr>
-          <td><span class="tabla-pos">1</span></td><td class="tabla-club">Gillingham</td>
-          <td>29</td><td>15</td><td>7</td><td>7</td><td>54</td><td>42</td><td>+12</td><td><span class="tabla-pts">52</span></td>
-        </tr>
-        <tr>
-          <td><span class="tabla-pos">2</span></td><td class="tabla-club">Colchester Utd</td>
-          <td>29</td><td>14</td><td>7</td><td>8</td><td>54</td><td>44</td><td>+10</td><td><span class="tabla-pts">49</span></td>
-        </tr>
-        <tr>
-          <td><span class="tabla-pos">3</span></td><td class="tabla-club">Notts County</td>
-          <td>29</td><td>13</td><td>10</td><td>6</td><td>50</td><td>43</td><td>+7</td><td><span class="tabla-pts">49</span></td>
-        </tr>
-        <tr class="tabla-zona"><td colspan="10">↑ Eliminatorias de ascenso</td></tr>
-        <tr class="wakefield">
-          <td><span class="tabla-pos">4</span></td><td class="tabla-club">Wakefield F.C. ★</td>
-          <td>28</td><td>13</td><td>9</td><td>6</td><td>45</td><td>30</td><td>+15</td><td><span class="tabla-pts">48</span></td>
-        </tr>
-        <tr>
-          <td><span class="tabla-pos">5</span></td><td class="tabla-club">Salford City</td>
-          <td>27</td><td>11</td><td>12</td><td>4</td><td>47</td><td>38</td><td>+9</td><td><span class="tabla-pts">45</span></td>
-        </tr>
-        <tr>
-          <td><span class="tabla-pos">6</span></td><td class="tabla-club">Chesterfield</td>
-          <td>28</td><td>11</td><td>11</td><td>6</td><td>50</td><td>43</td><td>+7</td><td><span class="tabla-pts">44</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div id="copas" class="temp-section">
-    <div class="temp-section-label">Competiciones de Copa · 2025/2026</div>
-    <h2>Copas</h2>
-    <div class="copas-grid">
-      <div class="copa-card">
-        <div class="copa-name">Emirates FA Cup</div>
-        <div class="copa-result">Eliminados en Ronda 3</div>
-        <div class="copa-rounds">
-          <div class="copa-round win">
-            <span>Ronda 2 · Reading (Casa)</span>
-            <span class="copa-score win">4-1</span>
-          </div>
-          <div class="copa-round loss">
-            <span>Ronda 3 · Chelsea (Fuera)</span>
-            <span class="copa-score loss">0-2</span>
-          </div>
-        </div>
-      </div>
-      <div class="copa-card">
-        <div class="copa-name">Carabao Cup</div>
-        <div class="copa-result">Eliminados en Ronda 1</div>
-        <div class="copa-rounds">
-          <div class="copa-round loss">
-            <span>Ronda 1 · Mansfield Town</span>
-            <span class="copa-score loss">2-2 (1-3 pen.)</span>
-          </div>
-        </div>
-      </div>
-      <div class="copa-card">
-        <div class="copa-name">Vertu Trophy</div>
-        <div class="copa-result">Eliminados en Ronda 2</div>
-        <div class="copa-rounds">
-          <div class="copa-round loss">
-            <span>Ronda 2 · Bradford City</span>
-            <span class="copa-score loss">3-4</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="momentos" class="temp-section">
-    <div class="temp-section-label">Momentos imborrables de la temporada</div>
-    <h2>Momentos Destacados</h2>
-    <div class="momentos-grid">
-      <div class="momento-card" style="border-color: var(--gold); background: rgba(212,175,55,0.06);">
-        <div class="momento-comp" style="color: var(--gold); font-weight: 700;">Final Playoff · Wembley</div>
-        <div class="momento-rival">Barnet F.C.</div>
-        <div class="momento-score">0-2</div>
-        <div class="momento-venue">¡CAMPEONES! 🏆</div>
-      </div>
-      <div class="momento-card">
-        <div class="momento-comp">EFL League Two · Casa</div>
-        <div class="momento-rival">Walsall FC</div>
-        <div class="momento-score">5-1</div>
-        <div class="momento-venue">Calder Road</div>
-      </div>
-      <div class="momento-card">
-        <div class="momento-comp">FA Cup · Ronda 2 · Casa</div>
-        <div class="momento-rival">Reading FC</div>
-        <div class="momento-score">4-1</div>
-        <div class="momento-venue">Calder Road</div>
-      </div>
-      <div class="momento-card">
-        <div class="momento-comp">EFL League Two · Fuera</div>
-        <div class="momento-rival">Cambridge United</div>
-        <div class="momento-score">1-4</div>
-        <div class="momento-venue">Abbey Stadium</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="mercado-verano" class="temp-section">
-    <div class="temp-section-label">Julio — Agosto 2025</div>
-    <h2>Mercado de Verano</h2>
-    <div class="comunicados-list">
-      <div class="placeholder-box">
-        <p>No ha habido movimientos dest</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="mercado-invierno" class="temp-section">
-    <div class="temp-section-label">Enero 2026 · Mercado cerrado</div>
-    <h2>Mercado de Invierno</h2>
-
-    <div class="mercado-header">
-      <h3>Entradas</h3>
-      <span class="mercado-badge cerrado">Mercado cerrado · Feb 2026</span>
-    </div>
-    <div class="comunicados-list">
-      <div class="com-item" onclick="openModal('risa')">
-        <span class="com-tag">Fichaje</span>
-        <div class="com-info">
-          <h3>Birk Risa</h3>
-          <p>Central zurdo · Molde FK → Wakefield F.C. · 27 años · 188cm</p>
-        </div>
-        <span class="com-amount">£1,500,000</span>
-      </div>
-      <div class="com-item" onclick="openModal('stehle')">
-        <span class="com-tag">Fichaje</span>
-        <div class="com-info">
-          <h3>Simon Stehle</h3>
-          <p>Interior / Delantero · SV Wehen Wiesbaden → Wakefield F.C.</p>
-        </div>
-        <span class="com-amount">£800,000</span>
-      </div>
-      <div class="com-item" onclick="openModal('jahn')">
-        <span class="com-tag">Fichaje</span>
-        <div class="com-info">
-          <h3>Niklas Jahn</h3>
-          <p>Extremo · VfB Stuttgart (2.ª) → Wakefield F.C. · 22 años</p>
-        </div>
-        <span class="com-amount">€400,000</span>
-      </div>
-    </div>
-
-    <div class="mercado-spacer"></div>
-
-    <div class="mercado-header">
-      <h3>Salidas y traspasos</h3>
-    </div>
-    <div class="comunicados-list">
-      <div class="com-item" onclick="openModal('powell')">
-        <span class="com-tag">Traspaso</span>
-        <div class="com-info">
-          <h3>Dylan Powell → Stade de Reims</h3>
-          <p>Central zurdo · EFL League Two → Ligue 1</p>
-        </div>
-        <span class="com-amount">£1,600,000</span>
-      </div>
-      <div class="com-item" onclick="openModal('lawrence')">
-        <span class="com-tag">Traspaso</span>
-        <div class="com-info">
-          <h3>Finn Lawrence → Çaykur Rizespor</h3>
-          <p>Mediapunta · EFL League Two → Süper Lig</p>
-        </div>
-        <span class="com-amount">£1,300,000</span>
-      </div>
-      <div class="com-item" onclick="openModal('hayes')">
-        <span class="com-tag">Traspaso</span>
-        <div class="com-info">
-          <h3>Nathan Hayes → Rosenborg BK</h3>
-          <p>Mediocentro defensivo · EFL League Two → Eliteserien</p>
-        </div>
-        <span class="com-amount">£690,000</span>
-      </div>
-      <div class="com-item" onclick="openModal('best')">
-        <span class="com-tag">Traspaso</span>
-        <div class="com-info">
-          <h3>Albie Best → Swindon Town</h3>
-          <p>Portero · EFL League Two → EFL League Two</p>
-        </div>
-        <span class="com-amount">£220,000</span>
-      </div>
-      <div class="com-item" onclick="openModal('proctor')">
-        <span class="com-tag cesion">Cesión</span>
-        <div class="com-info">
-          <h3>Noah Proctor → Barnsley F.C.</h3>
-          <p>Extremo · 2 temporadas · Canterano · 17 años</p>
-        </div>
-        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Cesión</span>
-      </div>
-      <div class="com-item" onclick="openModal('roberts')">
-        <span class="com-tag cesion">Cesión</span>
-        <div class="com-info">
-          <h3>Dexter Roberts → Leyton Orient</h3>
-          <p>Mediocentro · 2 temporadas · Canterano · 17 años</p>
-        </div>
-        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Cesión</span>
-      </div>
-      <div class="com-item" onclick="openModal('woodward')">
-        <span class="com-tag salida">Salida</span>
-        <div class="com-info">
-          <h3>James Woodward</h3>
-          <p>Lateral derecho · Fin de contrato</p>
-        </div>
-        <span class="com-amount salida">Libre</span>
-      </div>
-      <div class="com-item" onclick="openModal('slater')">
-        <span class="com-tag salida">Salida</span>
-        <div class="com-info">
-          <h3>Arlo Slater</h3>
-          <p>Delantero centro · Fin de contrato · 35 años</p>
-        </div>
-        <span class="com-amount salida">Libre</span>
-      </div>
-    </div>
-
-    <div id="comunicados" class="temp-section">
-    <div class="temp-section-label">Temporada 2025/2026</div>
-    <h2>Comunicados Oficiales</h2>
-    <div class="comunicados-list">
-      <div class="com-item" onclick="openModal('escudo')">
-        <span class="com-tag" style="background:var(--navy-mid); color:var(--gold); border:1px solid var(--gold-dim);">Identidad</span>
-        <div class="com-info">
-          <h3>El Wakefield F.C. presenta su nuevo escudo oficial</h3>
-          <p>Julio 2026 · Rediseño del escudo con motivo del ascenso a la EFL</p>
-        </div>
-        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Jul 2026</span>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
-  <div class="modal-box" id="modal-box">
-    <button class="modal-close" onclick="closeModal()">CERRAR ✕</button>
-    <div id="modal-content"></div>
-  </div>
-</div>
-
-<script>
-const comunicados = {
-  risa: {
-    meta: 'Wakefield F.C. · Enero 2026 · Fichaje',
-    title: 'El Wakefield F.C. da la bienvenida a Birk Risa',
-    body: '<p>El Wakefield Football Club anuncia el acuerdo con el Molde FK para la incorporación de <strong>Birk Risa</strong> por una cantidad de <strong>1,5 millones de libras</strong>.</p><p>El defensa noruego, de 27 años y 188 centímetros, llega al Calder Road para cubrir la posición de central zurdo tras la marcha de Dylan Powell. Zurdo natural y con una notable capacidad de salida de balón, Risa aporta además versatilidad al poder actuar como lateral izquierdo cuando la situación lo requiere.</p><p>Con experiencia en la Eliteserien noruega, Risa llega al Wakefield F.C. con el número <strong>4</strong> a la espalda y con el firme propósito de consolidarse en el fútbol inglés.</p>'
-  },
-  stehle: {
-    meta: 'Wakefield F.C. · Enero 2026 · Fichaje',
-    title: 'El Wakefield F.C. da la bienvenida a Simon Stehle',
-    body: '<p>El Wakefield Football Club anuncia la incorporación de <strong>Simon Stehle</strong> procedente del SV Wehen Wiesbaden por una cantidad de <strong>800.000 libras</strong>.</p><p>El centrocampista alemán llega al Calder Road con la versatilidad como carta de presentación: capaz de actuar tanto como interior en el mediocampo como en posiciones más avanzadas del ataque. Su perfil polivalente cubre una necesidad clara del equipo en la segunda parte de la temporada, aportando opciones tanto en la creación de juego como en la presión ofensiva.</p><p>El club da la bienvenida a Simon Stehle y le desea el mayor de los éxitos en su etapa en West Yorkshire.</p>'
-  },
-  jahn: {
-    meta: 'Wakefield F.C. · Enero 2026 · Fichaje',
-    title: 'El Wakefield F.C. anuncia la llegada de Niklas Jahn',
-    body: '<p>El Wakefield Football Club hace público el acuerdo alcanzado con el VfB Stuttgart II para la incorporación del extremo alemán <strong>Niklas Jahn</strong> por una cantidad de <strong>400.000 euros</strong>.</p><p>Jahn, de 22 años, llega con gran potencial ofensivo tras una prometedora etapa en la cantera de Stuttgart. Su versatilidad para actuar tanto por la banda derecha como por la izquierda, combinada con su capacidad de desborde y su llegada al área, lo convierten en un perfil ideal para las necesidades ofensivas del equipo en la recta final de la temporada.</p><p>El club confía en que Niklas Jahn sea una pieza clave en el objetivo de consolidar el ascenso a la League One. ¡Bienvenido al Calder Road, Niklas!</p>'
-  },
-  powell: {
-    meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
-    title: 'El Wakefield F.C. llega a un acuerdo con el Stade de Reims por Dylan Powell',
-    body: '<p>El Wakefield Football Club anuncia el traspaso de <strong>Dylan Powell</strong> al Stade de Reims de la Ligue 1 francesa por una cantidad de <strong>1,6 millones de libras</strong>, la mayor venta de la historia del club.</p><p>Powell, de 24 años, ha sido una de las piezas más destacadas de la plantilla en su primera temporada en la English Football League. Su capacidad de salida de balón desde la posición de central zurdo y su lectura táctica han llamado la atención de varios clubes en los últimos meses, siendo finalmente el Stade de Reims quien ha materializado su interés con una oferta que el club no ha podido rechazar.</p><p>Dylan Powell se marcha del Calder Road con el agradecimiento y el cariño de todo el club. Le deseamos la mejor de las suertes en Francia.</p>'
-  },
-  lawrence: {
-    meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
-    title: 'El Wakefield F.C. llega a un acuerdo con el Çaykur Rizespor por Finn Lawrence',
-    body: '<p>El Wakefield Football Club anuncia el traspaso de <strong>Finn Lawrence</strong> al Çaykur Rizespor de la Süper Lig turca por una cantidad de <strong>1,3 millones de libras</strong>.</p><p>Lawrence ha sido una de las piezas más importantes del sistema ofensivo del Wakefield desde su llegada al club, actuando como mediapunta titular y contribuyendo de manera decisiva en la primera parte de la temporada con sus asociaciones, su visión de juego y su llegada al área. La oferta del Çaykur Rizespor, sin embargo, representa una cantidad que el club no podía rechazar en el contexto de su política de gestión responsable.</p><p>Finn Lawrence se marcha del Calder Road con el reconocimiento y el agradecimiento de todo el club. Le deseamos lo mejor en su nueva etapa en Turquía.</p>'
-  },
-  hayes: {
-    meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
-    title: 'El Wakefield F.C. acepta la oferta del Rosenborg BK por Nathan Hayes',
-    body: '<p>El Wakefield Football Club confirma el traspaso de <strong>Nathan Hayes</strong> al Rosenborg BK de la Eliteserien noruega por una cantidad de <strong>690.000 libras</strong>.</p><p>La oferta del Rosenborg BK representa una cantidad significativa para una entidad del tamaño del Wakefield F.C. La dirección deportiva ha considerado que esta operación es coherente con la gestión responsable que el club necesita en esta etapa de su desarrollo institutional.</p><p>El Wakefield F.C. agradece a Nathan Hayes su entrega y profesionalidad, y le desea el mayor de los éxitos en su nueva etapa.</p>'
-  },
-  best: {
-    meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
-    title: 'Albie Best abandona el Wakefield F.C. para incorporarse al Swindon Town',
-    body: '<p>El Wakefield Football Club confirma el traspaso de <strong>Albie Best</strong> al Swindon Town por una cantidad de <strong>220.000 libras</strong>.</p><p>Best, de 29 años, llegó al Wakefield F.C. como segundo portero y ha cumplido con profesionalidad su rol durante la primera parte de la temporada. Con la llegada de nuevas opciones para la posición, el club y el jugador han acordado facilitar su salida en este mercado de invierno.</p><p>El Wakefield F.C. agradece a Albie Best su dedicación y le desea lo mejor en el Swindon Town.</p>'
-  },
-  proctor: {
-    meta: 'Wakefield F.C. · Enero 2026 · Cesión',
-    title: 'El Wakefield F.C. cede a Noah Proctor al Barnsley F.C. por dos temporadas',
-    body: '<p>El Wakefield Football Club anuncia el acuerdo con el Barnsley F.C. para la cesión de <strong>Noah Proctor</strong> por un período de dos temporadas.</p><p>Proctor, de 17 años, es uno de los talentos más prometedores formados en la cantera del club. El club ha tomado la decisión de facilitarle una cesión que le garantice minutos de competición regular en la Football League.</p><p>El Wakefield F.C. mantiene todos los derechos sobre el jugador. Noah Proctor sale del Calder Road con el respaldo total del club.</p>'
-  },
-  roberts: {
-    meta: 'Wakefield F.C. · Enero 2026 · Cesión',
-    title: 'El Wakefield F.C. cede a Dexter Roberts al Leyton Orient por dos temporadas',
-    body: '<p>El Wakefield Football Club anuncia el acuerdo con el Leyton Orient para la cesión de <strong>Dexter Roberts</strong> por un período de dos temporadas.</p><p>Roberts, de 17 años y 191 centímetros, es uno de los productos más destacados de la cantera del Wakefield F.C. Su físico privilegiado le otorga una presencia en el centro del campo poco habitual para su edad. El club considera que el Leyton Orient es el entorno ideal para el siguiente paso en su desarrollo.</p>'
-  },
-  woodward: {
-    meta: 'Wakefield F.C. · Diciembre 2025 · Salida',
-    title: 'El Wakefield F.C. confirma la no renovación de James Woodward',
-    body: '<p>El Wakefield Football Club informa de que <strong>James Woodward</strong> no continuará en la entidad una vez expire su contrato actual. El lateral derecho abandona el club tras no alcanzarse un acuerdo para la renovación de su vínculo contractual.</p><p>El club agradece a James Woodward su trabajo durante su etapa en el Calder Road y le desea lo mejor en su siguiente destino profesional.</p>'
-  },
-  slater: {
-    meta: 'Wakefield F.C. · Diciembre 2025 · Despedida',
-    title: 'El Wakefield F.C. despide a Arlo Slater tras una temporada inolvidable',
-    body: '<p>El Wakefield Football Club hace público que <strong>Arlo Slater</strong> no continuará en el club una vez finalice su contrato en vigor. El delantero, de 35 años, pone fin a su etapa en el Calder Road tras haber formado parte del grupo histórico que ha disputado la primera temporada del club en la English Football League.</p><p>El club agradece a Arlo Slater su dedicación, su profesionalidad y todo lo que ha aportado a este proyecto en un año que ninguno olvidará.</p>'
-  },
-  escudo: {
-    meta: 'Wakefield F.C. · Julio 2026 · Comunicado Oficial',
-    title: 'El Wakefield F.C. presenta su nuevo escudo oficial',
-    body: '<p>El Wakefield Football Club hace público hoy el rediseño de su escudo oficial, con entrada en vigor a partir de la temporada 2026/2027. La decisión responde a la necesidad de dotar al club de una identidad visual a la altura de su nueva etapa institucional sin traicionar los valores y la historia que han definido a esta entidad durante 136 años.</p><p>El nuevo escudo mantiene intactos todos los elementos simbólicos: la flor de lis, el caballo de tiro y el carro, las ondas del río Calder y el año de fundación, 1890.</p>'
-  }
-};
-
-function openModal(id) {
-  const com = comunicados[id];
-  if (!com) return;
-  document.getElementById('modal-content').innerHTML =
-    '<p class="modal-meta">' + com.meta + '</p>' +
-    '<h2 class="modal-title">' + com.title + '</h2>' +
-    '<div class="modal-body">' + com.body + '</div>' +
-    '<div class="modal-footer">Wakefield Football Club — Est. 1890 · The Draymen. The Calder. The City.</div>';
-  document.getElementById('modal-overlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeModal();
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
-</script>
