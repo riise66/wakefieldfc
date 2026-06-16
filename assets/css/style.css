@@ -149,6 +149,9 @@ img { max-width: 100%; display: block; }
   list-style: none;
   gap: 0;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Fuerza a que los enlaces ocupen el alto total y se centren verticalmente */
 }
 .nav-season {
   display: flex;
@@ -209,9 +212,11 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--grey-light);
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem; /* Ajustamos el padding superior/inferior para el centrado */
   transition: color var(--transition);
-  display: block;
+  display: flex;
+  align-items: center;
+}
 }
 .nav-links > li > a:hover,
 .nav-links > li > a.active {
