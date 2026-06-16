@@ -4,276 +4,11 @@ title: "Temporada 2025/2026"
 extra_css_file: /assets/css/temporada-2526.css
 ---
 
-<style>
-/* MODAL */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(6, 21, 48, 0.92);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  backdrop-filter: blur(4px);
-}
-.modal-overlay.active { display: flex; }
-.modal-box {
-  background: var(--navy-dark);
-  border: 1px solid rgba(212,175,55,0.3);
-  border-top: 3px solid var(--gold);
-  max-width: 680px;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 3rem;
-  position: relative;
-  animation: modalIn 0.25s ease;
-}
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.modal-close {
-  position: absolute;
-  top: 1.25rem; right: 1.25rem;
-  background: none;
-  border: 1px solid rgba(212,175,55,0.3);
-  color: var(--gold-dim);
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  padding: 0.35rem 0.75rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.modal-close:hover { border-color: var(--gold); color: var(--gold); }
-.modal-meta {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 0.75rem;
-}
-.modal-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(212,175,55,0.15);
-}
-.modal-body p {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: var(--grey-light);
-  line-height: 1.85;
-  margin-bottom: 1.25rem;
-}
-.modal-body p strong { color: var(--white); font-weight: 600; }
-.modal-footer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(212,175,55,0.1);
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grey);
-}
-.com-item { cursor: pointer; }
-
-/* MERCADO HEADER */
-.mercado-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(212,175,55,0.1);
-}
-.mercado-header h3 {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grey-light);
-  margin: 0;
-}
-.mercado-badge {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid rgba(212,175,55,0.3);
-  color: var(--gold-dim);
-}
-.mercado-badge.cerrado {
-  background: rgba(212,175,55,0.08);
-  color: var(--gold);
-  border-color: var(--gold-dim);
-}
-.mercado-spacer {
-  height: 1.5rem;
-}
-
-/* TABLA CLASIFICACIÓN */
-.tabla-clasificacion {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-}
-.tabla-clasificacion th {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  padding: 0.75rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(212,175,55,0.2);
-}
-.tabla-clasificacion th:first-child,
-.tabla-clasificacion th:nth-child(2) { text-align: left; }
-.tabla-clasificacion td {
-  padding: 1rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--grey-light);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  text-align: center;
-}
-.tabla-clasificacion td:first-child,
-.tabla-clasificacion td:nth-child(2) { text-align: left; }
-.tabla-pos { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; color: var(--grey); }
-.tabla-club { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); }
-.tabla-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--gold); }
-.tabla-clasificacion tr.wakefield { background: rgba(212,175,55,0.06); }
-.tabla-clasificacion tr.wakefield .tabla-club { color: var(--gold); }
-.tabla-clasificacion tr:hover td { background: rgba(212,175,55,0.03); }
-.tabla-zona td { padding: 0.4rem 1rem; text-align: left; color: var(--gold-dim); font-family: var(--font-sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(212,175,55,0.05); border-bottom: 1px solid rgba(212,175,55,0.1); }
-
-/* SECCIÓN PREMIOS */
-.premios-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.premio-card {
-  background: rgba(212,175,55,0.02);
-  border: 1px solid rgba(212,175,55,0.1);
-  border-top: 3px solid var(--gold);
-  padding: 1.5rem;
-  text-align: center;
-}
-.premio-title {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 0.5rem;
-}
-.premio-winner {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 0.25rem;
-}
-.premio-stats {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  color: var(--grey-light);
-  letter-spacing: 0.05em;
-}
-
-/* COPAS */
-.copas-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 1.5rem;
-}
-.copa-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(212,175,55,0.1);
-  padding: 2rem;
-}
-.copa-name {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 0.75rem;
-}
-.copa-result {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 1.25rem;
-}
-.copa-rounds { display: flex; flex-direction: column; gap: 0.5rem; }
-.copa-round {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  color: var(--grey-light);
-  padding: 0.5rem 0.75rem;
-  background: rgba(255,255,255,0.03);
-  border-left: 2px solid rgba(212,175,55,0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.copa-round.win { border-left-color: #4CAF50; }
-.copa-round.loss { border-left-color: #e53935; }
-.copa-score { font-weight: 600; }
-.copa-score.win { color: #4CAF50; }
-.copa-score.loss { color: #e53935; }
-
-/* MOMENTOS */
-.momentos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 1.5rem;
-}
-.momento-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(212,175,55,0.1);
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-.momento-card:hover { background: rgba(212,175,55,0.04); border-color: rgba(212,175,55,0.3); }
-.momento-comp { font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.75rem; }
-.momento-rival { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-.momento-score { font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
-.momento-venue { font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
-
-@media (max-width: 1024px) {
-  .momentos-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 768px) {
-  .copas-grid, .momentos-grid, .premios-grid { grid-template-columns: 1fr; }
-  .com-item { grid-template-columns: 1fr; }
-  .com-amount { text-align: left; }
-}
-</style>
-
 <div class="temp-hero">
   <div class="temp-hero-inner">
     <p class="section-label">Temporadas · 2025/2026</p>
     <h1>Temporada <em>2025/2026</em></h1>
-    </div>
+  </div>
 </div>
 
 <nav class="temp-nav">
@@ -496,15 +231,11 @@ extra_css_file: /assets/css/temporada-2526.css
     <div class="temp-section-label">Julio — Agosto 2025</div>
     <h2>Mercado de Verano</h2>
     <div class="comunicados-list">
-    <div class="com-item" onclick="openModal('jahn')">
-        <span class="com-tag">Fichaje</span>
-        <div class="com-info">
-          <h3>Niklas Jahn</h3>
-          
-        </div>
-        <span class="com-amount">€400,000</span>
+      <div class="placeholder-box">
+        <p>No ha habido movimientos dest</p>
       </div>
     </div>
+  </div>
 
   <div id="mercado-invierno" class="temp-section">
     <div class="temp-section-label">Enero 2026 · Mercado cerrado</div>
@@ -519,7 +250,7 @@ extra_css_file: /assets/css/temporada-2526.css
         <span class="com-tag">Fichaje</span>
         <div class="com-info">
           <h3>Birk Risa</h3>
-          
+          <p>Central zurdo · Molde FK → Wakefield F.C. · 27 años · 188cm</p>
         </div>
         <span class="com-amount">£1,500,000</span>
       </div>
@@ -527,7 +258,7 @@ extra_css_file: /assets/css/temporada-2526.css
         <span class="com-tag">Fichaje</span>
         <div class="com-info">
           <h3>Simon Stehle</h3>
-          
+          <p>Interior / Delantero · SV Wehen Wiesbaden → Wakefield F.C.</p>
         </div>
         <span class="com-amount">£800,000</span>
       </div>
@@ -535,7 +266,7 @@ extra_css_file: /assets/css/temporada-2526.css
         <span class="com-tag">Fichaje</span>
         <div class="com-info">
           <h3>Niklas Jahn</h3>
-          
+          <p>Mediocentro · Cedido → Compra definitiva · 21 años · 171cm</p>
         </div>
         <span class="com-amount">€400,000</span>
       </div>
@@ -648,6 +379,11 @@ const comunicados = {
     meta: 'Wakefield F.C. · Enero 2026 · Fichaje',
     title: 'El Wakefield F.C. da la bienvenida a Simon Stehle',
     body: '<p>El Wakefield Football Club anuncia la incorporación de <strong>Simon Stehle</strong> procedente del SV Wehen Wiesbaden por una cantidad de <strong>800.000 libras</strong>.</p><p>El centrocampista alemán llega al Calder Road con la versatilidad como carta de presentación: capaz de actuar tanto como interior en el mediocampo como en posiciones más avanzadas del ataque. Su perfil polivalente cubre una necesidad clara del equipo en la segunda parte de la temporada, aportando opciones tanto en la creación de juego como en la presión ofensiva.</p><p>El club da la bienvenida a Simon Stehle y le desea el mayor de los éxitos en su etapa en West Yorkshire.</p>'
+  },
+  jahn: {
+    meta: 'Wakefield F.C. · Enero 2026 · Fichaje',
+    title: 'El Wakefield F.C. anuncia la compra definitiva de Niklas Jahn',
+    body: '<p>El Wakefield Football Club anuncia la compra definitiva del mediocentro alemán <strong>Niklas Jahn</strong>, tras la exitosa cesión de la primera parte de la temporada. La operación se cierra por una cantidad de <strong>400.000 euros</strong>.</p><p>Jahn, de 21 años y 171 centímetros, se ha consolidado como un pivote organizador de gran envergadura en el mediocampo del Wakefield. Su capacidad de lectura táctica, su agilidad en el pase corto y su presencia defensiva lo convierten en un elemento indispensable para la estructura del equipo en los momentos críticos de la competición.</p><p>Su juventud combinada con una madurez táctica inusual para su edad lo perfilan como una pieza clave del futuro del club. El Wakefield F.C. confía en que Niklas Jahn siga siendo fundamental en el objetivo de consolidar el ascenso a la League One. ¡Bienvenido definitivamente al Calder Road, Niklas!</p>'
   },
   powell: {
     meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
