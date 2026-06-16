@@ -199,12 +199,6 @@ img { max-width: 100%; display: block; }
   color: var(--gold-dim);
   text-transform: uppercase;
 }
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 0;
-  align-items: center;
-}
 .nav-links > li > a {
   font-family: var(--font-sans);
   font-size: 0.75rem;
