@@ -141,18 +141,6 @@ img { max-width: 100%; display: block; }
   margin-top: 4px;
   line-height: 1;
 }
-.nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  list-style: none;
-  gap: 0;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: 100%; /* Fuerza a que los enlaces ocupen el alto total y se centren verticalmente */
-}
 .nav-season {
   display: flex;
   flex-direction: column;
@@ -199,6 +187,21 @@ img { max-width: 100%; display: block; }
   color: var(--gold-dim);
   text-transform: uppercase;
 }
+
+/* AÑADE ESTE BLOQUE EXACTAMENTE AQUÍ */
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  list-style: none;
+  gap: 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+/* FIN DEL BLOQUE AÑADIDO */
+
 .nav-links > li > a {
   font-family: var(--font-sans);
   font-size: 0.75rem;
