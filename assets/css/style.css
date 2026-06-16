@@ -217,7 +217,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
 }
-}
+
 .nav-links > li > a:hover,
 .nav-links > li > a.active {
   color: var(--gold);
