@@ -90,11 +90,12 @@ img { max-width: 100%; display: block; }
 
 /* EL CONTENEDOR PRINCIPAL */
 .nav-logo {
+  justify-self: start; /* <- Añadimos esto */
   display: inline-flex;
   align-items: center;
-  gap: 15px;                /* Separación limpia entre el icono y las letras */
+  gap: 15px;
   text-decoration: none;
-  flex-shrink: 0;           /* Evita que los menús aplasten el logo */
+  flex-shrink: 0;
 }
 
 /* EL CABALLO */
