@@ -162,6 +162,28 @@ extra_css_file: /assets/css/temporada-2627.css
 }
 .copa-name { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.75rem; }
 .copa-result { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
+
+/* PLACEHOLDER BOX */
+.placeholder-box {
+  background: rgba(212,175,55,0.03);
+  border: 1px dashed rgba(212,175,55,0.2);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 4px;
+}
+.placeholder-box p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--grey-light);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .copas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .copas-grid { grid-template-columns: 1fr; }
+}
 </style>
 
 <!-- HERO -->
@@ -169,7 +191,7 @@ extra_css_file: /assets/css/temporada-2627.css
   <div class="temp-hero-inner">
     <p class="section-label">Temporadas · 2026/2027</p>
     <h1>Temporada <em>2026/2027</em></h1>
-    <p>El Wakefield F.C. afronta el exigente reto de consolidarse y competir en la Sky Bet EFL League One.</p>
+    <p>El Wakefield F.C. afronta el exigente reto de consolidarse en la tercera división inglesa.</p>
   </div>
 </div>
 
@@ -235,9 +257,9 @@ extra_css_file: /assets/css/temporada-2627.css
         <span class="com-tag">Traspaso</span>
         <div class="com-info">
           <h3>Cameron Bentley → FC Hermannstadt</h3>
-          <p>Delantero / Extremo · Traspaso definitivo al fútbol rumano</p>
+          <p>Delantero / Extremo · Traspaso definitivo a Liga I (Rumanía)</p>
         </div>
-        <span class="com-amount">450.000€</span>
+        <span class="com-amount">€450,000</span>
       </div>
 
       <!-- ALBERT BAILEY -->
@@ -245,9 +267,9 @@ extra_css_file: /assets/css/temporada-2627.css
         <span class="com-tag">Traspaso</span>
         <div class="com-info">
           <h3>Albert Bailey → Cork City</h3>
-          <p>Centrocampista · Traspaso definitivo a la League of Ireland</p>
+          <p>Centrocampista · Traspaso definitivo a Airtricity League (Irlanda)</p>
         </div>
-        <span class="com-amount">130.000€</span>
+        <span class="com-amount">€130,000</span>
       </div>
 
       <!-- CALLUM HOPE -->
@@ -255,7 +277,7 @@ extra_css_file: /assets/css/temporada-2627.css
         <span class="com-tag cesion">Cesión</span>
         <div class="com-info">
           <h3>Callum Hope → Los Angeles FC (LAFC)</h3>
-          <p>Medio / Extremo · Préstamo por una temporada a la MLS</p>
+          <p>Extremo · Préstamo por una temporada · MLS</p>
         </div>
         <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">1 Año</span>
       </div>
@@ -265,7 +287,7 @@ extra_css_file: /assets/css/temporada-2627.css
         <span class="com-tag cesion">Cesión</span>
         <div class="com-info">
           <h3>Aidan Robertson → Accrington Stanley</h3>
-          <p>Delantero centro · Préstamo de un año en busca de minutos regulares</p>
+          <p>Delantero centro · Préstamo por una temporada · League Two</p>
         </div>
         <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">1 Año</span>
       </div>
@@ -317,7 +339,7 @@ extra_css_file: /assets/css/temporada-2627.css
 
   <!-- MERCADO DE INVIERNO -->
   <div id="mercado-invierno" class="temp-section">
-    <div class="temp-section-label">Enero 2027</div>
+    <div class="temp-section-label">Enero 2027 · Próxima ventana</div>
     <h2>Mercado de Invierno</h2>
     <div class="placeholder-box">
       <p>🔒 Esta sección se habilitará automáticamente al comenzar el periodo de transferencias invernal en enero de 2027.</p>
@@ -339,22 +361,22 @@ const comunicados2627 = {
   bentley: {
     meta: 'Wakefield F.C. · Junio 2026 · Traspaso Oficial',
     title: 'Acuerdo con el FC Hermannstadt para el traspaso de Cameron Bentley',
-    body: '<p>El Wakefield Football Club ha alcanzado un acuerdo definitivo con el <strong>FC Hermannstadt</strong> de la Liga I (primera división de Rumanía) para la venta de los derechos federativos de <strong>Cameron Bentley</strong> por un montante fijo de <strong>450.000€</strong>.</p><p>El atacante emprende así una nueva aventura internacional en la élite del fútbol rumano. El club quiere agradecer a Cameron su compromiso, esfuerzo y los goles clave anotados durante la campaña del ascenso. ¡Mucha suerte en Sibiu, Cameron!</p>'
+    body: '<p>El Wakefield Football Club ha alcanzado un acuerdo definitivo con el <strong>FC Hermannstadt</strong> de la Liga I (primera división de Rumanía) para la venta de los derechos federativos de <strong>Cameron Bentley</strong> por un montante fijo de <strong>450.000 euros</strong>.</p><p>El atacante emprende así una nueva aventura internacional en la élite del fútbol rumano. Su capacidad goleadora y capacidad de desborde lo convierten en un perfil muy demandado en el mercado europeo. El club quiere agradecer a Cameron su compromiso, esfuerzo y los goles clave anotados durante la campaña del ascenso a League One. ¡Mucha suerte en Sibiu, Cameron!</p>'
   },
   bailey: {
     meta: 'Wakefield F.C. · Junio 2026 · Traspaso Oficial',
     title: 'Albert Bailey se marcha traspasado al Cork City',
-    body: '<p>El Wakefield F.C. confirma la salida definitiva del centrocampista <strong>Albert Bailey</strong>, quien se incorporará de inmediato a las filas del <strong>Cork City</strong> de la República de Irlanda.</p><p>La operación se ha cerrado por una cifra total de <strong>130.000€</strong>. Bailey firma un contrato multianual con el club del Turners Cross. Desde la entidad de West Yorkshire le deseamos el mayor de los éxitos en su andadura en la Airtricity League.</p>'
+    body: '<p>El Wakefield F.C. confirma la salida definitiva del centrocampista <strong>Albert Bailey</strong>, quien se incorporará de inmediato a las filas del <strong>Cork City</strong> de la República de Irlanda.</p><p>La operación se ha cerrado por una cifra total de <strong>130.000 euros</strong>. Bailey firma un contrato multianual con el club del Turners Cross. El centrocampista buscaba minutos regulares para mantener su ritmo competitivo. Desde la entidad de West Yorkshire le deseamos el mayor de los éxitos en su andadura en la Airtricity League.</p>'
   },
   hope: {
     meta: 'Wakefield F.C. · Junio 2026 · Cesión Oficial',
     title: 'Callum Hope jugará cedido una temporada en Los Angeles FC',
-    body: '<p>El Wakefield F.C. y <strong>Los Angeles FC (LAFC)</strong> de la Major League Soccer han acordado la cesión por una temporada del futbolista <strong>Callum Hope</strong>.</p><p>El préstamo se extenderá hasta el verano de 2027 sin opción de compra obligatoria. El objetivo prioritario de este movimiento es que el joven extremo sume una experiencia de altísimo nivel competitivo y ritmo en la liga norteamericana. Seguiremos con mucha atención tu evolución en California, Callum.</p>'
+    body: '<p>El Wakefield F.C. y <strong>Los Angeles FC (LAFC)</strong> de la Major League Soccer han acordado la cesión por una temporada del futbolista <strong>Callum Hope</strong>.</p><p>El préstamo se extenderá hasta el verano de 2027 sin opción de compra obligatoria. El objetivo prioritario de este movimiento es que el joven extremo sume una experiencia de altísimo nivel competitivo y ritmo en la liga norteamericana. El contacto con la MLS le permitirá desarrollarse tácticamente en una competición de máxima exigencia física. Seguiremos con mucha atención tu evolución en California, Callum. ¡Que disfrutes esta oportunidad!</p>'
   },
   robertson: {
     meta: 'Wakefield F.C. · Junio 2026 · Cesión Oficial',
     title: 'Aidan Robertson se marcha a préstamo al Accrington Stanley',
-    body: '<p>El delantero centro de 20 años, <strong>Aidan Robertson</strong>, jugará la temporada 2026/2027 en calidad de cedido en el <strong>Accrington Stanley</strong> de la EFL League Two.</p><p>Ambos clubes han pactado que el futbolista dispute un año completo en las filas de los \'Ods\' con el fin de garantizar los minutos en el fútbol profesional que aceleren su maduración de cara al futuro del Wakefield en las ligas superiores. ¡A por todas, Aidan!</p>'
+    body: '<p>El delantero centro de 20 años, <strong>Aidan Robertson</strong>, jugará la temporada 2026/2027 en calidad de cedido en el <strong>Accrington Stanley</strong> de la EFL League Two.</p><p>Ambos clubes han pactado que el futbolista dispute un año completo en las filas de los \'Reds\' con el fin de garantizar los minutos regulares en el fútbol profesional que aceleren su maduración. Su perfil alto y potente lo convierten en un activo clave para el futuro del Wakefield en las ligas superiores. ¡A por todas, Aidan!</p>'
   }
 };
 
@@ -365,7 +387,7 @@ function openModal(id) {
     '<p class="modal-meta">' + com.meta + '</p>' +
     '<h2 class="modal-title">' + com.title + '</h2>' +
     '<div class="modal-body">' + com.body + '</div>' +
-    '<div class="modal-footer">Wakefield Football Club — Est. 1890 · Transición League One</div>';
+    '<div class="modal-footer">Wakefield Football Club — Est. 1890 · League One 2026/27</div>';
   document.getElementById('modal-overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
