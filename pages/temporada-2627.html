@@ -4,189 +4,6 @@ title: "Temporada 2026/2027"
 extra_css_file: /assets/css/temporada-2627.css
 ---
 
-<style>
-/* MODAL INTERACTIVO */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(6, 21, 48, 0.92);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  backdrop-filter: blur(4px);
-}
-.modal-overlay.active { display: flex; }
-.modal-box {
-  background: var(--navy-dark);
-  border: 1px solid rgba(212,175,55,0.3);
-  border-top: 3px solid var(--gold);
-  max-width: 680px;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 3rem;
-  position: relative;
-  animation: modalIn 0.25s ease;
-}
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.modal-close {
-  position: absolute;
-  top: 1.25rem; right: 1.25rem;
-  background: none;
-  border: 1px solid rgba(212,175,55,0.3);
-  color: var(--gold-dim);
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  padding: 0.35rem 0.75rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.modal-close:hover { border-color: var(--gold); color: var(--gold); }
-.modal-meta {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 0.75rem;
-}
-.modal-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(212,175,55,0.15);
-}
-.modal-body p {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: var(--grey-light);
-  line-height: 1.85;
-  margin-bottom: 1.25rem;
-}
-.modal-body p strong { color: var(--white); font-weight: 600; }
-.modal-footer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(212,175,55,0.1);
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grey);
-}
-.com-item { cursor: pointer; }
-
-/* MERCADO ESTILOS */
-.mercado-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(212,175,55,0.1);
-}
-.mercado-header h3 {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grey-light);
-  margin: 0;
-}
-.mercado-badge {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
-  background: rgba(212,175,55,0.08);
-  border: 1px solid var(--gold);
-  color: var(--gold);
-}
-.mercado-spacer { height: 2rem; }
-
-/* TABLAS */
-.tabla-clasificacion {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-}
-.tabla-clasificacion th {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  padding: 0.75rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(212,175,55,0.2);
-}
-.tabla-clasificacion th:first-child, .tabla-clasificacion th:nth-child(2) { text-align: left; }
-.tabla-clasificacion td {
-  padding: 1rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--grey-light);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  text-align: center;
-}
-.tabla-clasificacion td:first-child, .tabla-clasificacion td:nth-child(2) { text-align: left; }
-.tabla-pos { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; color: var(--grey); }
-.tabla-club { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); }
-.tabla-pts { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--gold); }
-.tabla-clasificacion tr.wakefield { background: rgba(212,175,55,0.06); }
-.tabla-clasificacion tr.wakefield .tabla-club { color: var(--gold); }
-.tabla-zona td { padding: 0.4rem 1rem; text-align: left; color: var(--gold-dim); font-family: var(--font-sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(212,175,55,0.05); border-bottom: 1px solid rgba(212,175,55,0.1); }
-
-/* GRID COPAS */
-.copas-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 1.5rem;
-}
-.copa-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(212,175,55,0.1);
-  padding: 2rem;
-}
-.copa-name { font-family: var(--font-sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.75rem; }
-.copa-result { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
-
-/* PLACEHOLDER BOX */
-.placeholder-box {
-  background: rgba(212,175,55,0.03);
-  border: 1px dashed rgba(212,175,55,0.2);
-  padding: 3rem 2rem;
-  text-align: center;
-  border-radius: 4px;
-}
-.placeholder-box p {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: var(--grey-light);
-  margin: 0;
-}
-
-@media (max-width: 1024px) {
-  .copas-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 768px) {
-  .copas-grid { grid-template-columns: 1fr; }
-}
-</style>
-
-<!-- HERO -->
 <div class="temp-hero">
   <div class="temp-hero-inner">
     <p class="section-label">Temporadas · 2026/2027</p>
@@ -195,7 +12,6 @@ extra_css_file: /assets/css/temporada-2627.css
   </div>
 </div>
 
-<!-- NAVEGACIÓN INTERNA -->
 <nav class="temp-nav">
   <div class="temp-nav-inner">
     <a href="#resumen" class="active">Resumen</a>
@@ -208,7 +24,6 @@ extra_css_file: /assets/css/temporada-2627.css
 
 <div class="temp-content">
 
-  <!-- RESUMEN -->
   <div id="resumen" class="temp-section" style="border-top: none;">
     <div class="temp-section-label">Introducción de la temporada</div>
     <div class="resumen-grid">
@@ -230,20 +45,19 @@ extra_css_file: /assets/css/temporada-2627.css
     </div>
   </div>
 
-  <!-- MERCADO DE VERANO -->
   <div id="mercado-verano" class="temp-section">
     <div class="temp-section-label">Junio — Agosto 2026 · Ventana Activa</div>
     <h2>Mercado de Verano</h2>
 
-    <!-- Niklas Jahn -->
-      <div class="com-item" onclick="openModal('bentley')">
-        <span class="com-tag">Traspaso</span>
-        <div class="com-info">
-          <h3>Niklas Jahn</h3>
-          <p>Mediocentro defensivo · Traspaso definitivo tras cesión</p>
-        </div>
-        <span class="com-amount">€450,000</span>
+    <div class="mercado-header">
+      <h3>Altas e Incorporaciones</h3>
+      <span class="mercado-badge">Abierto</span>
+    </div>
+    <div class="comunicados-list">
+      <div class="placeholder-box">
+        <p>⏳ Próximamente se anunciarán las nuevas incorporaciones del primer equipo para la temporada 2026/2027.</p>
       </div>
+    </div>
 
     <div class="mercado-spacer"></div>
 
@@ -252,7 +66,6 @@ extra_css_file: /assets/css/temporada-2627.css
     </div>
     <div class="comunicados-list">
       
-      <!-- CAMERON BENTLEY -->
       <div class="com-item" onclick="openModal('bentley')">
         <span class="com-tag">Traspaso</span>
         <div class="com-info">
@@ -262,7 +75,6 @@ extra_css_file: /assets/css/temporada-2627.css
         <span class="com-amount">€450,000</span>
       </div>
 
-      <!-- ALBERT BAILEY -->
       <div class="com-item" onclick="openModal('bailey')">
         <span class="com-tag">Traspaso</span>
         <div class="com-info">
@@ -272,7 +84,6 @@ extra_css_file: /assets/css/temporada-2627.css
         <span class="com-amount">€130,000</span>
       </div>
 
-      <!-- CALLUM HOPE -->
       <div class="com-item" onclick="openModal('hope')">
         <span class="com-tag cesion">Cesión</span>
         <div class="com-info">
@@ -282,7 +93,6 @@ extra_css_file: /assets/css/temporada-2627.css
         <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">1 Año</span>
       </div>
 
-      <!-- AIDAN ROBERTSON -->
       <div class="com-item" onclick="openModal('robertson')">
         <span class="com-tag cesion">Cesión</span>
         <div class="com-info">
@@ -295,7 +105,6 @@ extra_css_file: /assets/css/temporada-2627.css
     </div>
   </div>
 
-  <!-- CLASIFICACIÓN (PROVISIONAL / VACÍA) -->
   <div id="clasificacion" class="temp-section">
     <div class="temp-section-label">Clasificación en directo · Temporada Regular</div>
     <h2>EFL League One — 2026/2027</h2>
@@ -317,7 +126,6 @@ extra_css_file: /assets/css/temporada-2627.css
     </table>
   </div>
 
-  <!-- COPAS -->
   <div id="copas" class="temp-section">
     <div class="temp-section-label">Torneos del KO · Curso 2026/27</div>
     <h2>Competiciones de Copa</h2>
@@ -337,7 +145,6 @@ extra_css_file: /assets/css/temporada-2627.css
     </div>
   </div>
 
-  <!-- MERCADO DE INVIERNO -->
   <div id="mercado-invierno" class="temp-section">
     <div class="temp-section-label">Enero 2027 · Próxima ventana</div>
     <h2>Mercado de Invierno</h2>
@@ -348,7 +155,6 @@ extra_css_file: /assets/css/temporada-2627.css
 
 </div>
 
-<!-- COMPONENTE MODAL INTERACTIVO -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
   <div class="modal-box" id="modal-box">
     <button class="modal-close" onclick="closeModal()">CERRAR ✕</button>
