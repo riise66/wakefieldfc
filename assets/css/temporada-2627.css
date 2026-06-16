@@ -1,14 +1,27 @@
 /* ============================================
    WAKEFIELD F.C. — TEMPORADA 2026/2027
-   Estilos específicos para League One
+   Estilos independientes para League One
    ============================================ */
+
+:root {
+  --navy-dark: #000b18;
+  --navy-mid: #001428;
+  --gold: #D4AF37;
+  --gold-dim: #a08820;
+  --white: #F5F0E8;
+  --grey-light: #c8c2b4;
+  --grey: #8a8a8a;
+  --font-display: Georgia, serif;
+  --font-body: Garamond, serif;
+  --font-sans: 'Segoe UI', Tahoma, sans-serif;
+}
 
 /* ============================================
    HERO ESPECÍFICO DE PÁGINA
    ============================================ */
 .temp-hero {
     padding: 12rem 0 6rem;
-    background: linear-gradient(135deg, #000b18 0%, #00132B 100%); /* Navy dark a Navy */
+    background: linear-gradient(135deg, #000b18 0%, #00132B 100%);
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     position: relative;
     overflow: hidden;
@@ -38,33 +51,33 @@
 }
 
 .temp-hero .section-label {
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-sans);
     font-size: 0.75rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #D4AF37; /* Gold */
+    color: var(--gold);
     margin-bottom: 1rem;
     display: block;
 }
 
 .temp-hero h1 {
-    font-family: var(--font-display), serif;
+    font-family: var(--font-display);
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 900;
-    color: #F5F0E8; /* White */
+    color: var(--white);
     line-height: 1.1;
     margin-bottom: 1.5rem;
 }
 
 .temp-hero h1 em {
-    color: #D4AF37;
+    color: var(--gold);
     font-style: italic;
 }
 
 .temp-hero p {
-    font-family: var(--font-body), serif;
+    font-family: var(--font-body);
     font-size: 1.25rem;
-    color: #c8c2b4; /* Grey light */
+    color: var(--grey-light);
     font-style: italic;
     max-width: 700px;
     margin: 0 auto;
@@ -75,10 +88,10 @@
    NAVEGACIÓN INTERNA DE LA PÁGINA
    ============================================ */
 .temp-nav {
-    background: #000b18; /* Navy dark */
+    background: var(--navy-dark);
     border-bottom: 1px solid rgba(212, 175, 55, 0.15);
     position: sticky;
-    top: 70px; /* Justo debajo del navbar global */
+    top: 70px;
     z-index: 900;
 }
 
@@ -92,12 +105,12 @@
 }
 
 .temp-nav a {
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #8a8a8a; /* Grey */
+    color: var(--grey);
     padding: 1.2rem 1rem;
     display: block;
     transition: all 0.3s ease;
@@ -105,12 +118,12 @@
 }
 
 .temp-nav a:hover {
-    color: #F5F0E8; /* White */
+    color: var(--white);
 }
 
 .temp-nav a.active {
-    color: #D4AF37; /* Gold */
-    border-bottom-color: #D4AF37;
+    color: var(--gold);
+    border-bottom-color: var(--gold);
 }
 
 /* ============================================
@@ -125,23 +138,23 @@
 .temp-section {
     padding: 5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    scroll-margin-top: 120px; /* Para que al pulsar el nav no pise el título */
+    scroll-margin-top: 120px;
 }
 
 .temp-section-label {
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-sans);
     font-size: 0.7rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: #a08820; /* Gold dim */
+    color: var(--gold-dim);
     margin-bottom: 1rem;
 }
 
 .temp-section h2 {
-    font-family: var(--font-display), serif;
+    font-family: var(--font-display);
     font-size: 2.5rem;
     font-weight: 700;
-    color: #F5F0E8;
+    color: var(--white);
     margin-bottom: 3rem;
 }
 
@@ -156,15 +169,15 @@
 }
 
 .resumen-text p {
-    font-family: var(--font-body), serif;
+    font-family: var(--font-body);
     font-size: 1.15rem;
-    color: #c8c2b4;
+    color: var(--grey-light);
     line-height: 1.8;
     margin-bottom: 1.5rem;
 }
 
 .resumen-text p strong {
-    color: #F5F0E8;
+    color: var(--white);
     font-weight: 600;
 }
 
@@ -189,25 +202,142 @@
 
 .resumen-stat-num {
     display: block;
-    font-family: var(--font-display), serif;
+    font-family: var(--font-display);
     font-size: 2.5rem;
     font-weight: 900;
-    color: #F5F0E8;
+    color: var(--white);
     line-height: 1;
 }
 
 .resumen-stat-label {
     display: block;
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-sans);
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #8a8a8a;
+    color: var(--grey);
     margin-top: 0.75rem;
 }
 
 /* ============================================
-   MERCADO STYLES & COMUNICADOS LIST
+   TABLA CLASIFICACIÓN
+   ============================================ */
+.tabla-clasificacion {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.tabla-clasificacion th {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+.tabla-clasificacion th:first-child,
+.tabla-clasificacion th:nth-child(2) {
+    text-align: left;
+}
+
+.tabla-clasificacion td {
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--grey-light);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    text-align: center;
+}
+
+.tabla-clasificacion td:first-child,
+.tabla-clasificacion td:nth-child(2) {
+    text-align: left;
+}
+
+.tabla-pos {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--grey);
+}
+
+.tabla-club {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.tabla-pts {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--gold);
+}
+
+.tabla-clasificacion tr.wakefield {
+    background: rgba(212,175,55,0.06);
+}
+
+.tabla-clasificacion tr.wakefield .tabla-club {
+    color: var(--gold);
+}
+
+.tabla-clasificacion tr:hover td {
+    background: rgba(212,175,55,0.03);
+}
+
+.tabla-zona td {
+    padding: 0.4rem 1rem;
+    text-align: left;
+    color: var(--gold-dim);
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(212,175,55,0.05);
+    border-bottom: 1px solid rgba(212,175,55,0.1);
+}
+
+/* ============================================
+   COPAS
+   ============================================ */
+.copas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 1.5rem;
+}
+
+.copa-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(212,175,55,0.1);
+    padding: 2rem;
+}
+
+.copa-name {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.75rem;
+}
+
+.copa-result {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   MERCADO & COMUNICADOS
    ============================================ */
 .mercado-header {
     display: flex;
@@ -219,27 +349,176 @@
 }
 
 .mercado-header h3 {
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-sans);
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #c8c2b4;
+    color: var(--grey-light);
     margin: 0;
 }
 
 .mercado-badge {
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-sans);
     font-size: 0.6rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 0.25rem 0.75rem;
-    background: rgba(212, 175, 55, 0.08);
-    border: 1px solid #D4AF37;
-    color: #D4AF37;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid var(--gold);
+    color: var(--gold);
 }
 
 .mercado-spacer {
     height: 2rem;
 }
 
-/* Placeholder Box (⏳
+.comunicados-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.com-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.01);
+    border-bottom: 1px solid rgba(212,175,55,0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.com-item:hover {
+    background: rgba(212,175,55,0.03);
+    border-bottom-color: rgba(212,175,55,0.15);
+}
+
+.com-tag {
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(212,175,55,0.12);
+    color: var(--gold);
+    border: 1px solid rgba(212,175,55,0.2);
+    padding: 0.35rem 0.65rem;
+    white-space: nowrap;
+    align-self: start;
+}
+
+.com-tag.cesion {
+    background: rgba(100,150,200,0.12);
+    color: #64c5eb;
+    border-color: rgba(100,150,200,0.2);
+}
+
+.com-tag.salida {
+    background: rgba(200,100,100,0.12);
+    color: #e8a0a0;
+    border-color: rgba(200,100,100,0.2);
+}
+
+.com-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 0.5rem 0;
+}
+
+.com-info p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--grey-light);
+    margin: 0;
+}
+
+.com-amount {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.com-amount.salida {
+    color: var(--grey-light);
+    font-size: 0.9rem;
+}
+
+.placeholder-box {
+    background: rgba(212,175,55,0.03);
+    border: 1px dashed rgba(212,175,55,0.2);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.placeholder-box p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--grey-light);
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .copas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .resumen-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .temp-hero {
+        padding: 8rem 0 4rem;
+    }
+    
+    .temp-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .temp-hero p {
+        font-size: 1rem;
+    }
+    
+    .temp-nav-inner {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .temp-nav a {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.65rem;
+    }
+    
+    .temp-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .copas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .com-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .com-amount {
+        text-align: left;
+    }
+    
+    .resumen-stats {
+        grid-template-columns: 1fr;
+    }
+}
