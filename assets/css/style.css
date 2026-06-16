@@ -39,34 +39,112 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
 /* ============================================
-   NAVBAR
+   ACTUALIZACIONES NAVBAR — Copia estas reglas
    ============================================ */
+
+/* MODIFICACIÓN: Mejorar el dropdown menu visual */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 11, 24, 0.98);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: 2px solid var(--gold);
+  min-width: 200px;
+  list-style: none;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+  animation: dropdownSlideDown 0.2s ease;
+}
+
+@keyframes dropdownSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown:hover .dropdown-menu { 
+  display: block; 
+}
+
+.dropdown-menu li a {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  padding: 0.75rem 1.25rem;
+  display: block;
+  transition: all var(--transition);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-left: 2px solid transparent;
+}
+
+.dropdown-menu li a:hover {
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+  border-left-color: var(--gold);
+  padding-left: 1.5rem;
+}
+
+/* NUEVO: Destacar temporada actual */
+.dropdown-menu li a.current-season {
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--gold);
+  font-weight: 600;
+  border-left-color: var(--gold);
+}
 
 /* ============================================
-   NAVBAR
+   HISTÓRICO — Nuevas clases
    ============================================ */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  background: rgba(0, 19, 43, 0.95); 
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
-}
-.navbar.scrolled {
-  background: rgba(0, 19, 43, 0.99); 
-  border-bottom-color: var(--gold-dim);
+
+/* Separador visual */
+.historico-separator {
+  height: 1px;
+  background: rgba(212, 175, 55, 0.15);
+  margin: 0.5rem 0;
+  display: block;
 }
 
-.nav-inner {
-  width: 100%;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
+/* Etiqueta "Histórico" */
+.historico-label {
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  font-weight: 700;
+  pointer-events: none;
+  list-style: none;
+  display: block;
+}
+
+/* Items del histórico con marcador */
+.historico-item {
   position: relative;
+  padding-left: 2rem !important;
+}
+
+.historico-item::before {
+  content: '◆';
+  position: absolute;
+  left: 1rem;
+  color: var(--gold);
+  font-size: 0.5rem;
+}
+
+.historico-item:hover {
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+  border-left-color: var(--gold);
 }
 
 /* EL CONTENEDOR PRINCIPAL */
