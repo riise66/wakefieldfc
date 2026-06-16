@@ -25,6 +25,7 @@
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     position: relative;
     overflow: hidden;
+    margin-top: 70px; /* ✅ CORRECIÓN: Espacio para el navbar fixed */
 }
 
 .temp-hero::before {
@@ -481,6 +482,7 @@
 @media (max-width: 768px) {
     .temp-hero {
         padding: 8rem 0 4rem;
+        margin-top: 70px; /* Mantener espacio en móvil también */
     }
     
     .temp-hero h1 {
