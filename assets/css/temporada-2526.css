@@ -11,9 +11,9 @@
   --white: #F5F0E8;
   --grey-light: #c8c2b4;
   --grey: #8a8a8a;
-  --font-display: Georgia, serif;
-  --font-body: Garamond, serif;
-  --font-sans: 'Segoe UI', Tahoma, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Crimson Text', Georgia, serif;
+  --font-sans: 'Josefin Sans', sans-serif;
 }
 
 /* ============================================
