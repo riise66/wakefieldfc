@@ -8,12 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
   {% if page.extra_css_file %}
     <link rel="stylesheet" href="{{ site.baseurl }}{{ page.extra_css_file }}">
   {% endif %}
+
+  <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/assets/img/favicon.ico">
 </head>
 
 <body>
@@ -24,14 +26,12 @@
 
   {% include footer.html %}
 
-  <!-- LIGHTBOX HTML (IMPORTANTE: tiene que estar en el body) -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="">
   </div>
 
   <script src="{{ site.baseurl }}/assets/js/main.js"></script>
 
-  <!-- LIGHTBOX JS -->
   <script>
     function openLightbox(src) {
       const lightbox = document.getElementById('lightbox');
