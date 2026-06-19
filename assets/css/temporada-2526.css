@@ -1,20 +1,8 @@
 /* ============================================
    WAKEFIELD F.C. — TEMPORADA 2025/2026
    Estilos independientes para League Two
+   (Las variables CSS se heredan de style.css)
    ============================================ */
-
-:root {
-  --navy-dark: #000b18;
-  --navy-mid: #001428;
-  --gold: #D4AF37;
-  --gold-dim: #a08820;
-  --white: #F5F0E8;
-  --grey-light: #c8c2b4;
-  --grey: #8a8a8a;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Crimson Text', Georgia, serif;
-  --font-sans: 'Josefin Sans', sans-serif;
-}
 
 /* ============================================
    HERO ESPECÍFICO DE PÁGINA
@@ -25,7 +13,6 @@
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     position: relative;
     overflow: hidden;
-    margin-top: 70px; /* ✅ CORRECIÓN: Espacio para el navbar fixed */
 }
 
 .temp-hero::before {
@@ -759,7 +746,6 @@
 @media (max-width: 768px) {
     .temp-hero {
         padding: 8rem 0 4rem;
-        margin-top: 70px; /* Mantener espacio en móvil también */
     }
     
     .temp-hero h1 {
