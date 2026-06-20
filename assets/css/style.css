@@ -152,14 +152,14 @@ img { max-width: 100%; display: block; }
   justify-self: start; /* <- Añadimos esto */
   display: inline-flex;
   align-items: center;
-  gap: 15px;
+  gap: 9px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 /* EL CABALLO */
 .nav-logo .logo-icon {
-  height: 44px;             /* Mantiene su tamaño */
+  height: 25px;             /* Mantiene su tamaño */
   width: auto;
   display: block;
   transform: translateY(-2px); /* El truco: lo desplaza exactamente 2 píxeles hacia arriba */
@@ -177,13 +177,13 @@ img { max-width: 100%; display: block; }
 .nav-logo-text .logo-title {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 700;         
-  font-size: 1.15rem;
+  font-size: 1.10rem;
   letter-spacing: 0.05em;
   color: #ffffff;
   line-height: 1;
   display: flex;            /* Flex interno para alinear WAKEFIELD y F.C. */
   align-items: center;
-  gap: 6px;                 /* Cierra el hueco gigante entre palabras */
+  gap: 2px;                 /* Cierra el hueco gigante entre palabras */
 }
 
 /* EL F.C. DORADO */
@@ -198,7 +198,7 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   letter-spacing: 0.25em;
   color: #e5a93c;
-  margin-top: 4px;
+  margin-top: 2px;
   line-height: 1;
 }
 .nav-season {
