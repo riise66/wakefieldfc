@@ -48,7 +48,7 @@ img { max-width: 100%; display: block; }
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: 58px;
   background: rgba(6, 21, 48, 0.98);
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
   z-index: 999;
@@ -152,17 +152,17 @@ img { max-width: 100%; display: block; }
   justify-self: start; /* <- Añadimos esto */
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 /* EL CABALLO */
 .nav-logo .logo-icon {
-  height: 50px;             /* Mantiene su tamaño */
+  height: 28px;             /* Mantiene su tamaño */
   width: auto;
   display: block;
-  transform: translateY(-2px); /* El truco: lo desplaza exactamente 2 píxeles hacia arriba */
+  transform: translateY(-1px); /* El truco: lo desplaza exactamente 2 píxeles hacia arriba */
 }
 
 /* EL BLOQUE DE TEXTO VERTICAL */
@@ -177,13 +177,13 @@ img { max-width: 100%; display: block; }
 .nav-logo-text .logo-title {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 700;         
-  font-size: 1.10rem;
-  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
   color: #ffffff;
   line-height: 1;
   display: flex;            /* Flex interno para alinear WAKEFIELD y F.C. */
   align-items: center;
-  gap: 2px;                 /* Cierra el hueco gigante entre palabras */
+  gap: 3px;                 /* Cierra el hueco gigante entre palabras */
 }
 
 /* EL F.C. DORADO */
