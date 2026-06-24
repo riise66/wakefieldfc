@@ -230,9 +230,18 @@ extra_css_file: /assets/css/temporada-2526.css
   <div id="mercado-verano" class="temp-section">
     <div class="temp-section-label">Julio — Agosto 2025</div>
     <h2>Mercado de Verano</h2>
+
+    <div class="mercado-header">
+      <h3>Entradas</h3>
+    </div>
     <div class="comunicados-list">
-      <div class="placeholder-box">
-        <p>No ha habido movimientos dest</p>
+      <div class="com-item" onclick="openModal('jahn')">
+        <span class="com-tag cesion">Cesión</span>
+        <div class="com-info">
+          <h3>Niklas Jahn</h3>
+          <p>Mediocentro · Cedido de FC Ingolstadt 04 · 21 años · 171cm</p>
+        </div>
+        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">1 Temporada</span>
       </div>
     </div>
   </div>
@@ -261,14 +270,6 @@ extra_css_file: /assets/css/temporada-2526.css
           <p>Interior / Delantero · SV Wehen Wiesbaden → Wakefield F.C.</p>
         </div>
         <span class="com-amount">£800,000</span>
-      </div>
-      <div class="com-item" onclick="openModal('jahn')">
-        <span class="com-tag">Fichaje</span>
-        <div class="com-info">
-          <h3>Niklas Jahn</h3>
-          <p>Mediocentro · Cedido → Compra definitiva · 21 años · 171cm</p>
-        </div>
-        <span class="com-amount">€400,000</span>
       </div>
     </div>
 
@@ -381,9 +382,9 @@ const comunicados = {
     body: '<p>El Wakefield Football Club anuncia la incorporación de <strong>Simon Stehle</strong> procedente del SV Wehen Wiesbaden por una cantidad de <strong>800.000 libras</strong>.</p><p>El centrocampista alemán llega al Calder Road con la versatilidad como carta de presentación: capaz de actuar tanto como interior en el mediocampo como en posiciones más avanzadas del ataque. Su perfil polivalente cubre una necesidad clara del equipo en la segunda parte de la temporada, aportando opciones tanto en la creación de juego como en la presión ofensiva.</p><p>El club da la bienvenida a Simon Stehle y le desea el mayor de los éxitos en su etapa en West Yorkshire.</p>'
   },
   jahn: {
-    meta: 'Wakefield F.C. · Enero 2026 · Fichaje',
-    title: 'El Wakefield F.C. anuncia la compra definitiva de Niklas Jahn',
-    body: '<p>El Wakefield Football Club anuncia la compra definitiva del mediocentro alemán <strong>Niklas Jahn</strong>, tras la exitosa cesión de la primera parte de la temporada. La operación se cierra por una cantidad de <strong>400.000 euros</strong>.</p><p>Jahn, de 21 años y 171 centímetros, se ha consolidado como un pivote organizador de gran envergadura en el mediocampo del Wakefield. Su capacidad de lectura táctica, su agilidad en el pase corto y su presencia defensiva lo convierten en un elemento indispensable para la estructura del equipo en los momentos críticos de la competición.</p><p>Su juventud combinada con una madurez táctica inusual para su edad lo perfilan como una pieza clave del futuro del club. El Wakefield F.C. confía en que Niklas Jahn siga siendo fundamental en el objetivo de consolidar el ascenso a la League One. ¡Bienvenido definitivamente al Calder Road, Niklas!</p>'
+    meta: 'Wakefield F.C. · Julio 2025 · Cesión Oficial',
+    title: 'Niklas Jahn llega cedido al Wakefield F.C.',
+    body: '<p>El Wakefield Football Club anuncia la incorporación temporal del mediocentro alemán <strong>Niklas Jahn</strong>, cedido por el <strong>FC Ingolstadt 04</strong> por una temporada completa.</p><p>Jahn, de 21 años y 171 centímetros, llega con el perfil de pivote organizador: gran lectura táctica, agilidad en el pase corto y presencia defensiva. Artie Pendelton lo ha identificado como la pieza ideal para dar equilibrio al centro del campo durante la campaña.</p><p>El acuerdo no incluye opción de compra obligatoria, si bien el club seguirá de cerca su evolución durante la temporada. ¡Bienvenido al Calder Road, Niklas!</p>'
   },
   powell: {
     meta: 'Wakefield F.C. · Enero 2026 · Traspaso',
