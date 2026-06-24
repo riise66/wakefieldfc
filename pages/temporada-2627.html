@@ -54,6 +54,14 @@ extra_css_file: /assets/css/temporada-2627.css
       <span class="mercado-badge">Abierto</span>
     </div>
     <div class="comunicados-list">
+      <div class="com-item" onclick="openModal('jahn')">
+        <span class="com-tag">Fichaje</span>
+        <div class="com-info">
+          <h3>Niklas Jahn</h3>
+          <p>Mediocentro · FC Ingolstadt 04 → Wakefield F.C. · Compra definitiva · 22 años · 171cm</p>
+        </div>
+        <span class="com-amount">€400,000</span>
+      </div>
       <div class="placeholder-box">
         <p>⏳ Próximamente se anunciarán las nuevas incorporaciones del primer equipo para la temporada 2026/2027.</p>
       </div>
@@ -164,6 +172,11 @@ extra_css_file: /assets/css/temporada-2627.css
 
 <script>
 const comunicados2627 = {
+  jahn: {
+    meta: 'Wakefield F.C. · Junio 2026 · Fichaje Oficial',
+    title: 'El Wakefield F.C. anuncia la compra definitiva de Niklas Jahn',
+    body: '<p>El Wakefield Football Club anuncia la compra definitiva del mediocentro alemán <strong>Niklas Jahn</strong>, tras la exitosa cesión de la temporada 2025/2026 en la que fue clave en el ascenso a League One. La operación se cierra por una cantidad de <strong>400.000 euros</strong> con el <strong>FC Ingolstadt 04</strong>.</p><p>Jahn, de 22 años y 171 centímetros, se ha consolidado como un pivote organizador de gran nivel en el mediocampo del Wakefield. Su capacidad de lectura táctica, su agilidad en el pase corto y su presencia defensiva lo convierten en un elemento indispensable para afrontar el reto de la League One.</p><p>¡Bienvenido definitivamente al Calder Road, Niklas!</p>'
+  },
   bentley: {
     meta: 'Wakefield F.C. · Junio 2026 · Traspaso Oficial',
     title: 'Acuerdo con el FC Hermannstadt para el traspaso de Cameron Bentley',
