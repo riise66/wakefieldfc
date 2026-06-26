@@ -934,6 +934,22 @@ img { max-width: 100%; display: block; }
   margin-left: 0.5rem;
 }
 
+.squad-section-cedidos {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  color: var(--gold-dim);
+  font-size: 1.4rem;
+}
+
+.squad-loan {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64c5eb;
+}
+
 .sponsors {
   background: var(--navy-dark);
   border-top: 1px solid rgba(212,175,55,0.15);
