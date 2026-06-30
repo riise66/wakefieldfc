@@ -272,39 +272,8 @@ extra_css_file: /assets/css/temporada-2627.css
   <div id="mercado-invierno" class="temp-section">
     <div class="temp-section-label">Enero 2027 · Ventana de Invierno</div>
     <h2>Mercado de Invierno</h2>
-
-    <div class="mercado-header">
-      <h3>Bajas y Salidas</h3>
-    </div>
-    <div class="comunicados-list">
-
-      <div class="com-item" onclick="openModal('whittaker')">
-        <span class="com-tag cesion">Cesión</span>
-        <div class="com-info">
-          <h3>Elliott Whittaker → Genoa CFC</h3>
-          <p>Delantero centro · Préstamo por el resto de la temporada · Serie A</p>
-        </div>
-        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">6 Meses</span>
-      </div>
-
-      <div class="com-item" onclick="openModal('jahninv')">
-        <span class="com-tag cesion">Cesión</span>
-        <div class="com-info">
-          <h3>Niklas Jahn → Middlesbrough</h3>
-          <p>Mediocentro · Préstamo por el resto de la temporada · EFL Championship</p>
-        </div>
-        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">6 Meses</span>
-      </div>
-
-      <div class="com-item" onclick="openModal('hamersalida')">
-        <span class="com-tag salida">Fin de contrato</span>
-        <div class="com-info">
-          <h3>Ben Hamer deja el club</h3>
-          <p>Portero · Finaliza su contrato y no es renovado · 39 años</p>
-        </div>
-        <span class="com-amount salida">Libre</span>
-      </div>
-
+    <div class="placeholder-box">
+      <p>No hubo movimientos en el mercado de invierno. La plantilla se mantuvo intacta para afrontar el tramo decisivo de la temporada.</p>
     </div>
   </div>
 
@@ -429,21 +398,6 @@ extra_css_file: /assets/css/temporada-2627.css
 
 <script>
 const comunicados2627 = {
-  whittaker: {
-    meta: 'Wakefield F.C. · Enero 2027 · Cesión Oficial',
-    title: 'Elliott Whittaker se marcha cedido al Genoa CFC',
-    body: '<p>El Wakefield Football Club y el <strong>Genoa CFC</strong> de la Serie A italiana han acordado la cesión del delantero centro <strong>Elliott Whittaker</strong> hasta el final de la temporada.</p><p>Whittaker arrastra problemas físicos desde el inicio de la campaña que le han impedido recuperar su mejor nivel. El club entiende que un cambio de aires y un nuevo ciclo de trabajo en Italia le ayudarán a recuperar sensaciones de cara a la siguiente temporada. Le deseamos una pronta recuperación y mucha suerte en Génova.</p>'
-  },
-  jahninv: {
-    meta: 'Wakefield F.C. · Enero 2027 · Cesión Oficial',
-    title: 'Niklas Jahn jugará cedido en el Middlesbrough',
-    body: '<p>El Wakefield Football Club y el <strong>Middlesbrough</strong> de la EFL Championship han llegado a un acuerdo para la cesión del mediocentro alemán <strong>Niklas Jahn</strong> hasta el final de la temporada.</p><p>Jahn no ha logrado hacerse con un puesto habitual en el once durante la primera mitad de la campaña. El préstamo en el Riverside Stadium le permitirá sumar minutos de competición en una categoría superior y seguir desarrollándose como futbolista. Confiamos en que regrese al Calder Road reforzado para la temporada 2027/28.</p>'
-  },
-  hamersalida: {
-    meta: 'Wakefield F.C. · Enero 2027 · Fin de Contrato',
-    title: 'Ben Hamer pone fin a su etapa en el Wakefield F.C.',
-    body: '<p>El Wakefield Football Club anuncia que <strong>Ben Hamer</strong> finaliza su contrato con la entidad y no continuará formando parte de la plantilla. El veterano guardameta, de 39 años, deja el club tras una etapa breve pero decisiva, en la que fue una pieza fundamental para sostener el ascenso a la EFL Championship.</p><p>Hamer se marcha como el tercer portero con más porterías a cero de la EFL League One esta temporada. El club quiere agradecerle públicamente su profesionalidad, su liderazgo en el vestuario y su contribución directa a uno de los años más exitosos de la historia reciente del Wakefield. ¡Gracias por todo, Ben!</p>'
-  },
   jahn: {
     meta: 'Wakefield F.C. · Junio 2026 · Fichaje Oficial',
     title: 'El Wakefield F.C. anuncia la compra definitiva de Niklas Jahn',
