@@ -592,7 +592,180 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 1024px) {
+/* ============================================
+   PLAYOFF SCOREBOARD — Componente destacado
+   ============================================ */
+.playoff-scoreboard {
+    background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.02) 100%);
+    border: 1px solid rgba(212,175,55,0.3);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+
+.playoff-scoreboard::before {
+    content: '🏆';
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    font-size: 12rem;
+    opacity: 0.04;
+    transform: rotate(-15deg);
+}
+
+.playoff-venue {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 2rem;
+}
+
+.playoff-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.playoff-team {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--grey-light);
+}
+
+.playoff-team.winner {
+    color: var(--white);
+}
+
+.playoff-score {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.playoff-score .dash {
+    font-size: 2rem;
+    color: var(--grey);
+}
+
+.playoff-result-tag {
+    margin-top: 2rem;
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy-dark);
+    background: var(--gold);
+    padding: 0.6rem 1.5rem;
+}
+
+/* ============================================
+   DOUBLE-UP BADGE — Logro destacado en hero
+   ============================================ */
+.achievement-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.35);
+    padding: 0.5rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+/* ============================================
+   COPAS — Resultado de eliminación
+   ============================================ */
+.copa-card.eliminado {
+    border-color: rgba(200,100,100,0.2);
+    background: rgba(200,100,100,0.03);
+}
+
+.copa-card .copa-score {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.copa-card .copa-eliminado-por {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--grey-light);
+    font-style: italic;
+}
+
+.copa-card .copa-round {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #e8a0a0;
+    margin-top: 0.75rem;
+}
+
+/* ============================================
+   TROPHY TIMELINE — Resumen de logros del club
+   ============================================ */
+.trophy-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1.5rem;
+}
+
+.trophy-timeline-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+}
+
+.trophy-timeline-item:last-child {
+    border-bottom: none;
+}
+
+.trophy-timeline-year {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--gold);
+}
+
+.trophy-timeline-text strong {
+    color: var(--white);
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.trophy-timeline-text span {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--grey-light);
+}
+
+
     .copas-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -645,5 +818,22 @@
     
     .resumen-stats {
         grid-template-columns: 1fr;
+    }
+
+    .playoff-score {
+        font-size: 2.2rem;
+    }
+
+    .playoff-teams {
+        gap: 1.25rem;
+    }
+
+    .playoff-team {
+        font-size: 1rem;
+    }
+
+    .trophy-timeline-item {
+        grid-template-columns: 60px 1fr;
+        gap: 1rem;
     }
 }
