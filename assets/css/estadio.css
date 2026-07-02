@@ -36,7 +36,7 @@
     .stadium-hero-text p.label {
       font-family: var(--font-sans);
       font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 0.5rem;
@@ -75,7 +75,7 @@
     .stadium-section h2 {
       font-family: var(--font-sans);
       font-size: 0.8rem;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 1.25rem;
@@ -136,7 +136,7 @@
     .stat-item h4 {
       font-family: var(--font-sans);
       font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.03em;
       color: var(--gold-dim);
       text-transform: uppercase;
       margin-bottom: 0.5rem;

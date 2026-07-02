@@ -35,7 +35,7 @@
     .crest-hero-text p {
       font-family: var(--font-sans);
       font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 0.5rem;
@@ -111,7 +111,7 @@
     .crest-card h4 {
       font-family: var(--font-sans);
       font-size: 0.75rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 0.5rem;
@@ -129,7 +129,7 @@
     .crest-section h2 {
       font-family: var(--font-sans);
       font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 1.25rem;
