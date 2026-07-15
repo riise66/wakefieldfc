@@ -1,129 +1,353 @@
 ---
 layout: default
-title: ""
+title: "Palmarés"
 ---
 
-  <!-- HERO -->
-  <header class="hero" style="position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden;">
-  <div style="position:absolute; inset:0; z-index:0;">
-    <img src="{{ site.baseurl }}/assets/img/estadiocampoportada.png" alt="Calder Road"
-         style="width:100%; height:100%; object-fit:cover; object-position:center;">
-    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(6,21,48,0.97) 40%, rgba(6,21,48,0.5) 100%);"></div>
+<style>
+.palmares-hero {
+  padding: 12rem 0 6rem;
+  background: var(--navy-dark);
+  border-bottom: 3px double rgba(182,137,58,0.4);
+  position: relative;
+  overflow: hidden;
+}
+.palmares-hero::before {
+  content: '★';
+  position: absolute;
+  right: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22rem;
+  color: rgba(182,137,58,0.05);
+  pointer-events: none;
+}
+.palmares-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+.palmares-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.palmares-hero p {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--grey-light);
+  max-width: 600px;
+}
+
+/* CONTADOR TOTAL */
+.palmares-counter {
+  background: var(--navy-dark);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  padding: 2rem 0;
+}
+.palmares-counter-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+.counter-stat {
+  text-align: center;
+}
+.counter-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+.counter-label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 0.3rem;
+  display: block;
+}
+.counter-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(212,175,55,0.2);
+}
+
+/* VITRINA */
+.palmares-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+.palmares-section-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+.vitrina {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-bottom: 6rem;
+}
+.trofeo-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,175,55,0.1);
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.trofeo-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.trofeo-card:hover::before { transform: scaleX(1); }
+.trofeo-card:hover {
+  background: rgba(212,175,55,0.04);
+  border-color: rgba(212,175,55,0.25);
+}
+.trofeo-card.destacado {
+  border-color: rgba(212,175,55,0.3);
+  background: rgba(212,175,55,0.03);
+}
+.trofeo-card.destacado::before { transform: scaleX(1); }
+
+.trofeo-img {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.trofeo-img img {
+  max-height: 120px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(212,175,55,0.2));
+  transition: filter 0.3s ease;
+}
+.trofeo-card:hover .trofeo-img img {
+  filter: drop-shadow(0 4px 20px rgba(212,175,55,0.4));
+}
+.trofeo-img .trophy-ph {
+  width: 70px;
+  height: 100px;
+  border: 1px dashed rgba(212,175,55,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: rgba(212,175,55,0.2);
+}
+
+.trofeo-count {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.trofeo-count span {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+}
+.trofeo-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+}
+.trofeo-years {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.trofeo-year {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--grey-light);
+  background: rgba(255,255,255,0.04);
+  padding: 0.3rem 0.5rem;
+  border: 1px solid rgba(212,175,55,0.08);
+}
+
+@media (max-width: 900px) {
+  .vitrina { grid-template-columns: repeat(3, 1fr); }
+  .palmares-counter-inner { flex-wrap: wrap; gap: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .vitrina { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<!-- HERO -->
+<div class="palmares-hero">
+  <div class="palmares-hero-inner">
+    <p class="section-label">Wakefield F.C.</p>
+    <h1>Palmarés</h1>
+    <p>136 años de historia. Este es el registro oficial de los títulos conquistados por el Wakefield Football Club desde su fundación en 1890.</p>
   </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content" style="position:relative; z-index:1;">
-    <p class="hero-eyebrow">Road to Glory</p>
-    <h1 class="hero-title">Wakefield Football Club<br><em>We Don't Bend</em></h1>
-    <p class="hero-sub">Wakefield, West Yorkshire, 1890.</p>
-    <a href="{{ site.baseurl }}/pages/historia.html" class="btn-primary">Conoce el club</a>
-  </div>
-</header>
+</div>
 
-  <!-- VIDIPRINTER — resultado en directo, estilo teleimpresora clásica -->
-  <div class="lema-strip">
-    <div class="lema-inner">
-      <span class="vp-label">VIDIPRINTER</span>
-      <span>WAKEFIELD 2-1 BLACKBURN ROVERS <span class="vp-label">(Final Playoff, Wembley)</span></span>
-      <span class="lema-dot">//</span>
-      <span>PRÓX. SÁB 15:00 — WAKEFIELD v SWANSEA CITY</span>
-      <span class="lema-dot">//</span>
-      <span>ABONOS 2027/28 <span class="vp-label">YA A LA VENTA</span></span>
+<!-- CONTADOR -->
+<div class="palmares-counter">
+  <div class="palmares-counter-inner">
+    <div class="counter-stat">
+      <span class="counter-num">13</span>
+      <span class="counter-label">Títulos totales</span>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-stat">
+      <span class="counter-num">6</span>
+      <span class="counter-label">Competiciones distintas</span>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-stat">
+      <span class="counter-num">1904</span>
+      <span class="counter-label">Primer título</span>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-stat">
+      <span class="counter-num">2026</span>
+      <span class="counter-label">Último título</span>
     </div>
   </div>
+</div>
 
-  <!-- NOTICIAS -->
-  <section class="section noticias">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Última hora</p>
-        <h2 class="section-title">Noticias del club</h2>
+<!-- VITRINA -->
+<div class="palmares-content">
+  <p class="palmares-section-label">Todos los títulos · 1890 — presente</p>
+
+  <div class="vitrina">
+
+    <!-- Play Off -->
+    <div class="trofeo-card destacado">
+    <div class="trofeo-img">
+        <!-- Sustituye por PNG del trofeo -->
+       <img src="{{ site.baseurl }}/assets/img/trophies/playoff.png" alt="Northern Premier League Trophy"
+     onerror="this.outerHTML='<div class=\'trophy-ph\'>🏆</div>'">
       </div>
-      <div class="noticias-grid">
-        <article class="noticia-featured">
-          <p class="noticia-tag">Temporada 2027/2028</p>
-          <h3>El Wakefield afronta su primera campaña en la EFL Championship</h3>
-          <p>Tras dos ascensos consecutivos y la conquista del Playoff de League One en Wembley, The Draymen debutan por primera vez en su historia de 136 años en la segunda categoría del fútbol inglés. La ciudad, dividida durante generaciones entre el rugby league y la sombra de sus vecinos profesionales, vive su temporada más esperada.</p>
-          <a href="{{ site.baseurl }}/pages/temporada-2728.html" class="noticia-link">Ver la temporada</a>
-        </article>
-        <div class="noticia-briefs">
-          <article class="noticia-card">
-            <p class="noticia-tag">Plantilla</p>
-            <h3>Pendelton confirma el bloque para la Championship</h3>
-            <a href="{{ site.baseurl }}/pages/plantilla.html" class="noticia-link">Ver plantilla</a>
-          </article>
-          <article class="noticia-card">
-            <p class="noticia-tag">Calder Road</p>
-            <h3>12.500 espectadores, un mismo hogar desde 1930</h3>
-            <a href="{{ site.baseurl }}/pages/estadio.html" class="noticia-link">Conocer el estadio</a>
-          </article>
-          <article class="noticia-card">
-            <p class="noticia-tag">Tienda</p>
-            <h3>La equipación 2026/27 pasa al archivo histórico</h3>
-            <a href="{{ site.baseurl }}/pages/tienda-2627.html" class="noticia-link">Ver equipación</a>
-          </article>
-        </div>
+      <div class="trofeo-count">1 <span>título</span></div>
+      <div class="trofeo-name">League Two Playoffs</div>
+      <div class="trofeo-years">
+        <span class="trofeo-year">2025/26</span>
       </div>
     </div>
-  </section>
 
-  <!-- EL CLUB — LISTADO TIPO DOSSIER -->
-  <section class="section pilares">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">El Club</p>
-        <h2 class="section-title">Una identidad forjada en Yorkshire</h2>
+    <!-- NATIONAL LEAGUE -->
+<div class="trofeo-card">
+  <div class="trofeo-img">
+    <img src="{{ site.baseurl }}/assets/img/trophies/nationalleague.png"
+         alt="Northern Premier League Trophy"
+         onerror="this.outerHTML='<div class=\'trophy-ph\'>🏆</div>'">
+  </div>
+
+  <div class="trofeo-count">1 <span>título</span></div>
+  <div class="trofeo-name">National League North</div>
+
+  <div class="trofeo-years">
+    <span class="trofeo-year">2024/25</span>
+  </div>
+</div>
+
+    <!-- NORTHERN PREMIER LEAGUE D1 EAST -->
+    <div class="trofeo-card">
+      <div class="trofeo-img">
+        <!-- Sustituye por PNG del trofeo -->
+       <img src="{{ site.baseurl }}/assets/img/trophies/nationleaguenorth.png" alt="Northern Premier League Trophy"
+     onerror="this.outerHTML='<div class=\'trophy-ph\'>🏆</div>'">
       </div>
-      <div class="pilares-list">
-        <a href="{{ site.baseurl }}/pages/historia.html" class="pilar">
-          <span class="pilar-tag">Historia · 1890—</span>
-          <h3>De las minas de carbón al fútbol profesional</h3>
-          <p>136 años de resistencia obrera hasta el ascenso histórico de 2026. La historia completa de The Draymen.</p>
-          <span class="pilar-link">Leer →</span>
-        </a>
-        <a href="{{ site.baseurl }}/pages/escudo.html" class="pilar">
-          <span class="pilar-tag">Escudo · Blasón</span>
-          <h3>El caballo de carga y la flor de lis</h3>
-          <p>El origen del apodo The Draymen y su herencia directa del blasón municipal de Wakefield.</p>
-          <span class="pilar-link">Leer →</span>
-        </a>
-        <a href="{{ site.baseurl }}/pages/estadio.html" class="pilar">
-          <span class="pilar-tag">Estadio · Calder Road</span>
-          <h3>A orillas del río Calder desde 1930</h3>
-          <p>De la tribuna de madera de Thornes Lane al estadio actual, con capacidad para 12.500 espectadores.</p>
-          <span class="pilar-link">Leer →</span>
-        </a>
-        <a href="{{ site.baseurl }}/pages/cuerpo-tecnico.html" class="pilar">
-          <span class="pilar-tag">Cuerpo técnico</span>
-          <h3>Artie Pendelton, el arquitecto del doble ascenso</h3>
-          <p>El técnico escocés que reconstruyó al club desde los cimientos hasta la Championship.</p>
-          <span class="pilar-link">Leer →</span>
-        </a>
+      <div class="trofeo-count">1 <span>título</span></div>
+      <div class="trofeo-name">National League North</div>
+      <div class="trofeo-years">
+        <span class="trofeo-year">2021/22</span>
       </div>
     </div>
-  </section>
 
-  <!-- BANNER DE TEMPORADA -->
-  <section class="section temporada-banner">
-    <div class="container temporada-inner">
-      <div class="temporada-text">
-        <p class="section-label">Temporada 2027/2028</p>
-        <h2>Dos ascensos consecutivos.<br>Una sola ambición.</h2>
-        <p>Tras subir de la League Two a la League One y coronarse campeón del Playoff en Wembley ante el Blackburn Rovers, el Wakefield F.C. afronta su primera temporada en la EFL Championship bajo la dirección de Artie Pendelton.</p>
-        <a href="{{ site.baseurl }}/pages/palmares.html" class="btn-secondary">Ver palmarés</a>
+    <!-- WEST RIDING COUNTY FA CUP -->
+    <div class="trofeo-card">
+      <div class="trofeo-img">
+        <img src="{{ site.baseurl }}/assets/img/trophies/nothernpremierleague.png" alt="Northern Premier League Trophy"
+     onerror="this.outerHTML='<div class=\'trophy-ph\'>🏆</div>'">
       </div>
-      <div class="temporada-stats">
-        <div class="stat">
-          <span class="stat-num">136</span>
-          <span class="stat-label">años de historia</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">2</span>
-          <span class="stat-label">ascensos consecutivos</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">12.500</span>
-          <span class="stat-label">aforo en Calder Road</span>
-        </div>
+      <div class="trofeo-count">2 <span>títulos</span></div>
+      <div class="trofeo-name">Northern Premier League</div>
+      <div class="trofeo-years">
+        <span class="trofeo-year">2016/2017</span>
+        <span class="trofeo-year">2018/2019</span>
       </div>
     </div>
-  </section>
+
+    <!-- WEST RIDING COUNTY FA CUP -->
+    <div class="trofeo-card">
+      <div class="trofeo-img">
+        <img src="{{ site.baseurl }}/assets/img/trophies/ridingcountyfa.png" alt="Northern Premier League Trophy"
+     onerror="this.outerHTML='<div class=\'trophy-ph\'>🏆</div>'">
+      </div>
+      <div class="trofeo-count">3 <span>títulos</span></div>
+      <div class="trofeo-name">West Riding County FA Cup</div>
+      <div class="trofeo-years">
+        <span class="trofeo-year">1951/52</span>
+        <span class="trofeo-year">1987/88</span>
+        <span class="trofeo-year">2001/02</span>
+      </div>
+    </div>
+
+    <!-- YORKSHIRE LEAGUE -->
+    <div class="trofeo-card">
+      <div class="trofeo-img">
+        <img src="{{ site.baseurl }}/assets/img/trophies/yorkshireleague.png" alt="Northern Premier League Trophy"
+     onerror="this.outerHTML='<div class=\'trophy-ph\'>🏆</div>'">
+      </div>
+      <div class="trofeo-count">2 <span>títulos</span></div>
+      <div class="trofeo-name">Yorkshire League</div>
+      <div class="trofeo-years">
+        <span class="trofeo-year">1938/39</span>
+        <span class="trofeo-year">1962/63</span>
+      </div>
+    </div>
+
+    <!-- WAKEFIELD & DISTRICT FA LEAGUE -->
+    <div class="trofeo-card">
+      <div class="trofeo-img">
+        <img src="{{ site.baseurl }}/assets/img/trophies/wakefielddistrict.png" alt="Northern Premier League Trophy"
+     onerror="this.outerHTML='<div class=\'trophy-ph\'>🏆</div>'">
+      </div>
+      <div class="trofeo-count">3 <span>títulos</span></div>
+      <div class="trofeo-name">Wakefield & District FA League</div>
+      <div class="trofeo-years">
+        <span class="trofeo-year">1904/05</span>
+        <span class="trofeo-year">1912/13</span>
+        <span class="trofeo-year">1923/24</span>
+      </div>
+    </div>
+
+  </div>
+</div>
