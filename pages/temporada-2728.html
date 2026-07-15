@@ -19,6 +19,7 @@ extra_css_file: /assets/css/temporada-2627.css
     <a href="#equipacion">Nueva Equipación</a>
     <a href="#mercado-verano">Mercado Verano</a>
     <a href="#clasificacion">Clasificación</a>
+    <a href="#gol-temporada">Gol de la Temporada</a>
     <a href="#copas">Copas</a>
     <a href="#mercado-invierno">Mercado Invierno</a>
   </div>
@@ -43,15 +44,28 @@ extra_css_file: /assets/css/temporada-2627.css
           <span class="resumen-stat-num">3.º</span>
           <span class="resumen-stat-label">Año en el fútbol profesional</span>
         </div>
+        <div class="resumen-stat">
+          <span class="resumen-stat-num">4.º</span>
+          <span class="resumen-stat-label">Puesto en enero 2028 · Zona de playoff</span>
+        </div>
       </div>
     </div>
   </div>
 
   <div id="equipacion" class="temp-section">
     <div class="temp-section-label">Comunicado Oficial · Patrocinio Técnico</div>
-    <h2>Fin de etapa con Umbro</h2>
+    <h2>Cambio de patrocinador técnico</h2>
 
     <div class="comunicados-list">
+      <div class="com-item" onclick="openModal('puma')">
+        <span class="com-tag">Fichaje Oficial</span>
+        <div class="com-info">
+          <h3>El Wakefield F.C. y Puma cierran un acuerdo de patrocinio técnico</h3>
+          <p>Nueva etapa a partir de la temporada 2028/2029 · Acuerdo plurianual</p>
+        </div>
+        <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">Nuevo Contrato</span>
+      </div>
+
       <div class="com-item" onclick="openModal('umbro')">
         <span class="com-tag salida">Comunicado Oficial</span>
         <div class="com-info">
@@ -64,17 +78,60 @@ extra_css_file: /assets/css/temporada-2627.css
   </div>
 
   <div id="mercado-verano" class="temp-section">
-    <div class="temp-section-label">Junio — Agosto 2027 · Ventana Activa</div>
+    <div class="temp-section-label">Junio — Agosto 2027 · Ventana Cerrada</div>
     <h2>Mercado de Verano</h2>
 
     <div class="mercado-header">
       <h3>Altas e Incorporaciones</h3>
-      <span class="mercado-badge">Abierto</span>
+      <span class="mercado-badge">Cerrado</span>
     </div>
     <div class="comunicados-list">
-      <div class="placeholder-box">
-        <p>⏳ Próximamente se anunciarán las nuevas incorporaciones del primer equipo para la temporada 2027/2028.</p>
+
+      <div class="com-item" onclick="openModal('weiner')">
+        <span class="com-tag">Traspaso</span>
+        <div class="com-info">
+          <h3>Timon Weiner llega procedente del Holstein Kiel</h3>
+          <p>Portero alemán · 09/07 · Kieler SV Holstein · Bundesliga 2</p>
+        </div>
+        <span class="com-amount">2,5 M €</span>
       </div>
+
+      <div class="com-item" onclick="openModal('muller')">
+        <span class="com-tag">Traspaso</span>
+        <div class="com-info">
+          <h3>Andreas Müller refuerza el mediocentro procedente del Karlsruher SC</h3>
+          <p>Pivote organizativo alemán · 20/08 · Karlsruher SC · Bundesliga 2</p>
+        </div>
+        <span class="com-amount">2,5 M €</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('karweina')">
+        <span class="com-tag cesion">Agente Libre</span>
+        <div class="com-info">
+          <h3>Sinan Karweina se incorpora como agente libre</h3>
+          <p>Jugador alemán · 20/08 · Sin club anterior</p>
+        </div>
+        <span class="com-amount">Gratis</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('sahin')">
+        <span class="com-tag cesion">Agente Libre</span>
+        <div class="com-info">
+          <h3>Ahmet Şahin se incorpora como agente libre</h3>
+          <p>Jugador turco · 23/08 · Sin club anterior</p>
+        </div>
+        <span class="com-amount">Gratis</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('mor')">
+        <span class="com-tag cesion">Agente Libre</span>
+        <div class="com-info">
+          <h3>Emre Mor se incorpora como agente libre</h3>
+          <p>Jugador turco · 30/08 · Sin club anterior</p>
+        </div>
+        <span class="com-amount">Gratis</span>
+      </div>
+
     </div>
 
     <div class="mercado-spacer"></div>
@@ -84,38 +141,56 @@ extra_css_file: /assets/css/temporada-2627.css
     </div>
     <div class="comunicados-list">
 
-      <div class="com-item" onclick="openModal('whittaker')">
+      <div class="com-item" onclick="openModal('johnson')">
         <span class="com-tag cesion">Cesión</span>
         <div class="com-info">
-          <h3>Elliott Whittaker → Genoa CFC</h3>
-          <p>Delantero centro · Préstamo por una temporada · Serie A</p>
+          <h3>Isaac Johnson → Cork City</h3>
+          <p>Cedido · 31/07 · League of Ireland</p>
         </div>
         <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">1 Año</span>
       </div>
 
-      <div class="com-item" onclick="openModal('jahnboro')">
+      <div class="com-item" onclick="openModal('robertson')">
         <span class="com-tag cesion">Cesión</span>
         <div class="com-info">
-          <h3>Niklas Jahn → Middlesbrough</h3>
-          <p>Mediocentro · Préstamo por una temporada · EFL Championship</p>
+          <h3>Aidan Robertson → IFK Värnamo</h3>
+          <p>Defensa central, 21 años · Cedido · 06/08 · Allsvenskan (Suecia)</p>
         </div>
         <span class="com-amount" style="color:var(--grey-light); font-size:0.8rem;">1 Año</span>
       </div>
 
-      <div class="com-item" onclick="openModal('hamersalida')">
-        <span class="com-tag salida">Fin de contrato</span>
+      <div class="com-item" onclick="openModal('taylor')">
+        <span class="com-tag salida">Traspaso</span>
         <div class="com-info">
-          <h3>Ben Hamer deja el club</h3>
-          <p>Portero · Finaliza su contrato y no es renovado · 39 años</p>
+          <h3>Harrison Taylor → Oud-Heverlee Leuven</h3>
+          <p>Extremo izquierdo, 28 años · 15/08 · Bélgica</p>
         </div>
-        <span class="com-amount salida">Libre</span>
+        <span class="com-amount">540 mil €</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('shepherd')">
+        <span class="com-tag salida">Traspaso</span>
+        <div class="com-info">
+          <h3>Morgan Shepherd → FC Thun</h3>
+          <p>Lateral derecho, 24 años · 23/08 · Suiza</p>
+        </div>
+        <span class="com-amount">480 mil €</span>
+      </div>
+
+      <div class="com-item" onclick="openModal('pritchard')">
+        <span class="com-tag salida">Traspaso</span>
+        <div class="com-info">
+          <h3>Alan Pritchard → PEC Zwolle</h3>
+          <p>Extremo derecho, 26 años · 30/08 · Países Bajos</p>
+        </div>
+        <span class="com-amount">720 mil €</span>
       </div>
 
     </div>
   </div>
 
   <div id="clasificacion" class="temp-section">
-    <div class="temp-section-label">Clasificación en directo · Temporada Regular</div>
+    <div class="temp-section-label">Clasificación en directo · Jornada 25 · Enero 2028</div>
     <h2>EFL Championship — 2027/2028</h2>
     <table class="tabla-clasificacion">
       <thead>
@@ -125,13 +200,25 @@ extra_css_file: /assets/css/temporada-2627.css
       </thead>
       <tbody>
         <tr class="tabla-zona"><td colspan="10">↑ Ascenso directo a Premier League</td></tr>
-        <tr><td><span class="tabla-pos">1</span></td><td class="tabla-club">—</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><span class="tabla-pts">0</span></td></tr>
-        <tr><td><span class="tabla-pos">2</span></td><td class="tabla-club">—</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><span class="tabla-pts">0</span></td></tr>
+        <tr><td><span class="tabla-pos">1</span></td><td class="tabla-club">Southampton</td><td>25</td><td>15</td><td>7</td><td>3</td><td>50</td><td>26</td><td>24</td><td><span class="tabla-pts">52</span></td></tr>
         <tr class="tabla-zona"><td colspan="10">Eliminatorias de Ascenso (Playoffs)</td></tr>
+        <tr><td><span class="tabla-pos">2</span></td><td class="tabla-club">Hull City</td><td>25</td><td>12</td><td>9</td><td>4</td><td>37</td><td>24</td><td>13</td><td><span class="tabla-pts">45</span></td></tr>
+        <tr><td><span class="tabla-pos">3</span></td><td class="tabla-club">Birmingham City</td><td>25</td><td>13</td><td>6</td><td>6</td><td>43</td><td>33</td><td>10</td><td><span class="tabla-pts">45</span></td></tr>
         <tr class="wakefield">
-          <td><span class="tabla-pos">—</span></td><td class="tabla-club">Wakefield F.C.</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><span class="tabla-pts">0</span></td></tr>
+          <td><span class="tabla-pos">4</span></td><td class="tabla-club">Wakefield F.C.</td><td>25</td><td>13</td><td>4</td><td>8</td><td>50</td><td>32</td><td>18</td><td><span class="tabla-pts">43</span></td></tr>
+        <tr><td><span class="tabla-pos">5</span></td><td class="tabla-club">West Bromwich</td><td>25</td><td>12</td><td>7</td><td>6</td><td>36</td><td>28</td><td>8</td><td><span class="tabla-pts">43</span></td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div id="gol-temporada" class="temp-section">
+    <div class="temp-section-label">Jornada de Liga · vs Sheffield Wednesday</div>
+    <h2>El gol de la temporada lleva la firma de Andreas Müller</h2>
+    <div class="goal-highlight">
+      <p class="goal-context">EFL Championship · Wakefield F.C. vs Sheffield Wednesday</p>
+      <p class="goal-desc">Tres toques, un solo pensamiento. El Wakefield tejió una triangulación rápida de primera intención cerca del centro del campo, y el balón acabó llegando limpio a los pies de <strong>Andreas Müller</strong>, el pivote alemán que rara vez asoma por delante del área rival. Sin pensárselo, el mediocentro probó fortuna desde fuera del área: un disparo raso y ajustado que se coló por la escuadra izquierda de la portería del Sheffield Wednesday, sin opciones para el meta visitante.</p>
+      <p class="goal-scorer-tag">⚽ Andreas Müller · Disparo desde fuera del área · Escuadra izquierda</p>
+    </div>
   </div>
 
   <div id="copas" class="temp-section">
@@ -150,10 +237,10 @@ extra_css_file: /assets/css/temporada-2627.css
   </div>
 
   <div id="mercado-invierno" class="temp-section">
-    <div class="temp-section-label">Enero 2028 · Próxima ventana</div>
+    <div class="temp-section-label">Enero 2028 · Ventana Cerrada</div>
     <h2>Mercado de Invierno</h2>
     <div class="placeholder-box">
-      <p>🔒 Esta sección se habilitará automáticamente al comenzar el periodo de transferencias invernal en enero de 2028.</p>
+      <p>🔒 El Wakefield F.C. no ha realizado movimientos en el mercado de invierno. La directiva y Artie Pendelton confían en el bloque actual, cuarto clasificado y en puesto de playoff, para afrontar la segunda vuelta de la Championship.</p>
     </div>
   </div>
 
@@ -168,25 +255,65 @@ extra_css_file: /assets/css/temporada-2627.css
 
 <script>
 const comunicados2728 = {
+  puma: {
+    meta: 'Wakefield F.C. · Enero 2028 · Fichaje Oficial',
+    title: 'El Wakefield F.C. anuncia su nuevo patrocinio técnico con Puma',
+    body: '<p>El Wakefield Football Club se complace en anunciar el cierre de un acuerdo de patrocinio técnico plurianual con <strong>Puma</strong>, que vestirá al primer equipo, el filial y todas las categorías inferiores del club a partir de la temporada <strong>2028/2029</strong>.</p><p>El acuerdo llega en un momento clave de la historia reciente del club, coincidiendo con la primera temporada del Wakefield F.C. en la EFL Championship tras dos ascensos consecutivos. Para la directiva, contar con una marca de proyección internacional como Puma es un respaldo directo a la ambición del proyecto deportivo e institucional que se está construyendo en Calder Road.</p><p><strong>Alistair Hepworth</strong>, presidente del club, ha valorado el acuerdo como "un paso natural en el crecimiento del Wakefield F.C., y una señal de que el trabajo de estos años empieza a ser reconocido fuera de Yorkshire". Por su parte, fuentes de Puma han destacado el atractivo de la identidad histórica del club y el potencial de su hinchada como motivos determinantes para cerrar el acuerdo.</p><p>Las nuevas equipaciones, así como los detalles económicos del contrato, se presentarán oficialmente antes del inicio de la temporada 2028/2029. Hasta entonces, el Wakefield F.C. seguirá compitiendo con las equipaciones Umbro ya presentadas para el curso 2027/2028.</p>'
+  },
   umbro: {
     meta: 'Wakefield F.C. · Junio 2027 · Comunicado Oficial',
     title: 'El Wakefield F.C. y Umbro ponen fin a su etapa juntos tras cinco temporadas',
-    body: '<p>El Wakefield Football Club anuncia que su acuerdo de patrocinio técnico con <strong>Umbro</strong> ha llegado a su fin tras cinco temporadas de colaboración, coincidiendo con la finalización del contrato firmado en 2023.</p><p>Durante este periodo, Umbro ha vestido al club en una de las etapas más transformadoras de su historia: desde su consolidación en el fútbol no profesional hasta los dos ascensos consecutivos que han llevado al Wakefield hasta la EFL Championship. El club quiere agradecer públicamente a Umbro su compromiso, la calidad de las equipaciones producidas y el respeto mostrado en todo momento por la identidad y el escudo del Wakefield F.C.</p><p>De cara a la temporada 2028/2029, el Wakefield Football Club vestirá una nueva marca técnica, que será anunciada próximamente. La entidad confirma que se encuentra en conversaciones avanzadas con varios fabricantes de prestigio internacional para iniciar un nuevo capítulo a la altura de las ambiciones del proyecto.</p><p>Hasta entonces, la temporada 2027/2028 se disputará con las equipaciones ya presentadas por Umbro, como cierre natural de esta etapa compartida. Gracias por estos cinco años, Umbro.</p>'
+    body: '<p>El Wakefield Football Club anuncia que su acuerdo de patrocinio técnico con <strong>Umbro</strong> ha llegado a su fin tras cinco temporadas de colaboración, coincidiendo con la finalización del contrato firmado en 2023.</p><p>Durante este periodo, Umbro ha vestido al club en una de las etapas más transformadoras de su historia: desde su consolidación en el fútbol no profesional hasta los dos ascensos consecutivos que han llevado al Wakefield hasta la EFL Championship. El club quiere agradecer públicamente a Umbro su compromiso, la calidad de las equipaciones producidas y el respeto mostrado en todo momento por la identidad y el escudo del Wakefield F.C.</p><p>De cara a la temporada 2028/2029, el Wakefield Football Club vestirá equipaciones <strong>Puma</strong>, tras el acuerdo de patrocinio técnico anunciado en enero de 2028.</p><p>Hasta entonces, la temporada 2027/2028 se disputará con las equipaciones ya presentadas por Umbro, como cierre natural de esta etapa compartida. Gracias por estos cinco años, Umbro.</p>'
   },
-  whittaker: {
-    meta: 'Wakefield F.C. · Junio 2027 · Cesión Oficial',
-    title: 'Elliott Whittaker se marcha cedido al Genoa CFC',
-    body: '<p>El Wakefield Football Club y el <strong>Genoa CFC</strong> de la Serie A italiana han acordado la cesión del delantero centro <strong>Elliott Whittaker</strong> por una temporada completa.</p><p>Whittaker arrastra problemas físicos y una pérdida de nivel competitivo en los últimos meses. El club entiende que un cambio de aires y un nuevo ciclo de trabajo en Italia le ayudarán a recuperar sensaciones de cara al futuro. Le deseamos una pronta recuperación y mucha suerte en Génova.</p>'
+  weiner: {
+    meta: 'Wakefield F.C. · 09/07/2027 · Fichaje Oficial',
+    title: 'Timon Weiner, nuevo guardameta del Wakefield F.C.',
+    body: '<p>El Wakefield Football Club anuncia el fichaje del portero alemán <strong>Timon Weiner</strong>, procedente del <strong>Kieler SV Holstein</strong>, a cambio de 2,5 millones de euros.</p><p>Weiner llega para competir por la titularidad bajo los palos en la primera temporada del club en la EFL Championship. El club confía en su experiencia en el fútbol alemán para reforzar una portería clave en un curso de máxima exigencia.</p>'
   },
-  jahnboro: {
-    meta: 'Wakefield F.C. · Junio 2027 · Cesión Oficial',
-    title: 'Niklas Jahn jugará cedido en el Middlesbrough',
-    body: '<p>El Wakefield Football Club y el <strong>Middlesbrough</strong> de la EFL Championship han llegado a un acuerdo para la cesión del mediocentro alemán <strong>Niklas Jahn</strong> por una temporada completa.</p><p>Jahn no logró hacerse con un puesto habitual en el once durante la pasada campaña. El préstamo en el Riverside Stadium le permitirá sumar minutos de competición en la misma categoría y seguir desarrollándose como futbolista. Confiamos en que regrese al Calder Road reforzado.</p>'
+  muller: {
+    meta: 'Wakefield F.C. · 20/08/2027 · Fichaje Oficial',
+    title: 'Andreas Müller refuerza el centro del campo',
+    body: '<p>El Wakefield Football Club anuncia el fichaje del centrocampista alemán <strong>Andreas Müller</strong>, procedente del <strong>Karlsruher SC</strong>, a cambio de 2,5 millones de euros.</p><p>Müller es un pivote organizativo de mucho toque, ágil en la presión y con buena salida de balón desde el doble pivote. Artie Pendelton lo señala como una pieza clave para dar equilibrio al mediocampo en la Championship.</p>'
   },
-  hamersalida: {
-    meta: 'Wakefield F.C. · Junio 2027 · Fin de Contrato',
-    title: 'Ben Hamer pone fin a su etapa en el Wakefield F.C.',
-    body: '<p>El Wakefield Football Club anuncia que <strong>Ben Hamer</strong> finaliza su contrato con la entidad y no continuará formando parte de la plantilla. El veterano guardameta, de 39 años, deja el club tras una etapa breve pero decisiva, en la que fue una pieza fundamental para sostener el ascenso a la EFL Championship.</p><p>Hamer se marcha como el tercer portero con más porterías a cero de la EFL League One la pasada temporada. El club quiere agradecerle públicamente su profesionalidad, su liderazgo en el vestuario y su contribución directa a uno de los años más exitosos de la historia reciente del Wakefield. ¡Gracias por todo, Ben!</p>'
+  karweina: {
+    meta: 'Wakefield F.C. · 20/08/2027 · Incorporación',
+    title: 'Sinan Karweina se une al Wakefield F.C. como agente libre',
+    body: '<p>El Wakefield Football Club anuncia la incorporación del jugador alemán <strong>Sinan Karweina</strong>, que llega sin coste tras quedar libre de contrato.</p><p>Karweina se suma a la plantilla como refuerzo de fondo de armario para una temporada de máxima exigencia competitiva en la Championship.</p>'
+  },
+  sahin: {
+    meta: 'Wakefield F.C. · 23/08/2027 · Incorporación',
+    title: 'Ahmet Şahin se une al Wakefield F.C. como agente libre',
+    body: '<p>El Wakefield Football Club anuncia la incorporación del jugador turco <strong>Ahmet Şahin</strong>, que llega sin coste tras quedar libre de contrato.</p><p>Şahin aporta profundidad de plantilla en un mercado en el que el club ha priorizado el equilibrio financiero antes que el gasto en un curso de transición hacia el fútbol profesional de segundo nivel.</p>'
+  },
+  mor: {
+    meta: 'Wakefield F.C. · 30/08/2027 · Incorporación',
+    title: 'Emre Mor se une al Wakefield F.C. como agente libre',
+    body: '<p>El Wakefield Football Club anuncia la incorporación del jugador turco <strong>Emre Mor</strong>, que llega sin coste tras quedar libre de contrato, cerrando así el capítulo de altas del mercado de verano.</p>'
+  },
+  johnson: {
+    meta: 'Wakefield F.C. · 31/07/2027 · Cesión Oficial',
+    title: 'Isaac Johnson jugará cedido en el Cork City',
+    body: '<p>El Wakefield Football Club y el <strong>Cork City</strong> de la League of Ireland han acordado la cesión de <strong>Isaac Johnson</strong> por una temporada completa.</p><p>El préstamo permitirá al joven jugador sumar minutos de competición regular fuera de Calder Road. El club seguirá de cerca su evolución en Irlanda.</p>'
+  },
+  robertson: {
+    meta: 'Wakefield F.C. · 06/08/2027 · Cesión Oficial',
+    title: 'Aidan Robertson jugará cedido en el IFK Värnamo',
+    body: '<p>El Wakefield Football Club y el <strong>IFK Värnamo</strong> de la Allsvenskan sueca han acordado la cesión del defensa central <strong>Aidan Robertson</strong>, de 21 años, por una temporada completa.</p><p>El club considera que la experiencia en una liga extranjera de nivel será un paso importante en el desarrollo del central, con la vuelta al Calder Road prevista para el verano de 2028.</p>'
+  },
+  taylor: {
+    meta: 'Wakefield F.C. · 15/08/2027 · Traspaso Oficial',
+    title: 'Harrison Taylor ficha por el Oud-Heverlee Leuven',
+    body: '<p>El Wakefield Football Club y el <strong>Oud-Heverlee Leuven</strong> belga han acordado el traspaso del extremo izquierdo <strong>Harrison Taylor</strong>, de 28 años, por 540.000 euros.</p><p>Taylor deja el club tras varias temporadas de servicio para embarcarse en una nueva etapa en el fútbol belga. El club le desea la mejor de las suertes en este nuevo reto.</p>'
+  },
+  shepherd: {
+    meta: 'Wakefield F.C. · 23/08/2027 · Traspaso Oficial',
+    title: 'Morgan Shepherd ficha por el FC Thun',
+    body: '<p>El Wakefield Football Club y el <strong>FC Thun</strong> de la Super League suiza han acordado el traspaso del lateral derecho <strong>Morgan Shepherd</strong>, de 24 años, por 480.000 euros.</p><p>Shepherd, formado en la cantera inglesa, buscará continuidad y minutos en el fútbol suizo tras no entrar en los planes de Artie Pendelton para la Championship.</p>'
+  },
+  pritchard: {
+    meta: 'Wakefield F.C. · 30/08/2027 · Traspaso Oficial',
+    title: 'Alan Pritchard ficha por el PEC Zwolle',
+    body: '<p>El Wakefield Football Club y el <strong>PEC Zwolle</strong> neerlandés han acordado el traspaso del extremo derecho galés <strong>Alan Pritchard</strong>, de 26 años, por 720.000 euros, cerrando así el mercado de salidas del verano.</p><p>Pritchard deja el club como uno de los futbolistas más queridos de la reciente etapa de ascensos. El club le agradece su entrega y le desea suerte en los Países Bajos.</p>'
   }
 };
 
